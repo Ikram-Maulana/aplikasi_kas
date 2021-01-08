@@ -228,4 +228,211 @@ class Admin extends CI_Controller
     $this->session->set_flashdata('berhasil', 'Dihapus');
     redirect('admin/akun');
   }
+
+  public function sumberDana()
+  {
+    // ambil data keyword
+    if ($this->input->post('submit')) {
+      $data['keyword'] = $this->input->post('keyword');
+      $this->session->set_userdata('keyword', $data['keyword']);
+    } else {
+      $data['keyword'] = $this->session->userdata('keyword');;
+    }
+
+    // config
+    $config['base_url'] = 'http://localhost/uas_codelab_1930511075/admin/sumberdana';
+    $this->db->like('sumber', $data['keyword']);
+    $this->db->from('tbl_sumber');
+    $config['total_rows'] = $this->db->count_all_results();
+    $config['per_page'] = 10;
+
+    // Styling
+    $config['full_tag_open'] = '<nav><ul class="pagination mt-2">';
+    $config['full_tag_close'] = '</ul></nav>';
+
+    $config['first_link'] = 'First';
+    $config['first_tag_open'] = '<li class="page-item">';
+    $config['first_tag_close'] = '</li>';
+
+    $config['last_link'] = 'Last';
+    $config['last_tag_open'] = '<li class="page-item">';
+    $config['last_tag_close'] = '</li>';
+
+    $config['next_link'] = '&raquo';
+    $config['next_tag_open'] = '<li class="page-item">';
+    $config['next_tag_close'] = '</li>';
+
+    $config['prev_link'] = '&laquo';
+    $config['prev_tag_open'] = '<li class="page-item">';
+    $config['prev_tag_close'] = '</li>';
+
+    $config['cur_tag_open'] = '<li class="page-item active" aria-current="page"><a class="page-link" href="#">';
+    $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
+
+    $config['num_tag_open'] = '<li class="page-item" href="#">';
+    $config['num_tag_close'] = '</li>';
+
+    $config['attributes'] = array('class' => 'page-link');
+
+    // inisialisasi
+    $this->pagination->initialize($config);
+
+    $data['start'] = $this->uri->segment('3');
+    $data['sumber'] = $this->admin->getSumber($config['per_page'], $data['start'], $data['keyword']);
+
+    $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    $data['title'] = 'Sumber Dana Management';
+
+    $this->form_validation->set_rules('sumber', 'Sumber', 'required');
+
+    if ($this->form_validation->run() == false) {
+      $this->load->view('template/header-dash', $data);
+      $this->load->view('template/navbar', $data);
+      $this->load->view('admin/sumber', $data);
+      $this->load->view('template/footer-dash');
+    } else {
+      $this->db->insert('tbl_sumber', ['sumber' => $this->input->post('sumber')]);
+      $this->session->set_flashdata('berhasil', 'Ditambahkan');
+      redirect('admin/sumberdana');
+    }
+  }
+
+  public function editSum($id_sumber = '')
+  {
+    if (empty($id_sumber)) {
+      redirect('admin/sumberdana', 'refresh');
+    }
+    $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    $data['title'] = 'Sumber Dana Management';
+    $data['sumber'] = $this->db->get('tbl_sumber')->result_array();
+
+    $this->form_validation->set_rules('sumber', 'Sumber', 'required');
+
+    if ($this->form_validation->run() == false) {
+      $this->load->view('template/header-dash', $data);
+      $this->load->view('template/navbar', $data);
+      $this->load->view('admin/sumber', $data);
+      $this->load->view('template/footer-dash', $data);
+    } else {
+      $sumber = $this->input->post('sumber');
+      $id = $this->input->post('id');
+
+      $data = [
+        'sumber' => $sumber
+      ];
+
+      // proses update
+      $update = $this->admin->updatesumber($data, $id);
+
+      // notifikasi
+      if ($update) {
+        $this->session->set_flashdata('berhasil', 'Diupdate');
+        redirect('admin/sumberdana', 'refresh');
+      } else {
+        $this->session->set_flashdata('gagal', 'Gagal Disimpan');
+        redirect('admin/sumberdana', 'refresh');
+      }
+    }
+  }
+
+  public function hapusSum($id)
+  {
+    $this->admin->deleteSumber($id);
+    $this->session->set_flashdata('berhasil', 'Dihapus');
+    redirect('admin/sumberdana');
+  }
+
+  public function addSumber()
+  {
+    $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    $data['title'] = 'Sumber Dana Management';
+    $data['sumber'] = $this->admin->getSumber2();
+
+    $this->form_validation->set_rules('sumber', 'Sumber', 'required');
+
+    if ($this->form_validation->run() == false) {
+      $this->load->view('template/header-dash', $data);
+      $this->load->view('template/navbar', $data);
+      $this->load->view('admin/sumber', $data);
+      $this->load->view('template/footer-dash');
+    } else {
+      $this->db->insert('tbl_sumber', ['sumber' => $this->input->post('sumber')]);
+      $this->session->set_flashdata('berhasil', 'Ditambahkan');
+      redirect('admin/danamasuk');
+    }
+  }
+
+  public function danaMasuk()
+  {
+    $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    $data['title'] = 'Dana Masuk';
+
+    $data['sumber'] = $this->db->get('tbl_sumber')->result_array();
+
+    $this->db->order_by("date_trx", "asc");
+    $data['kasmasuk'] = $this->db->get('tbl_kasmasuk')->result_array();
+
+    $this->db->select_sum('nominal');
+    $data['total_kas'] = $this->db->get('tbl_kasmasuk')->row_array();
+
+    $this->form_validation->set_rules('sumber', 'Sumber', 'required');
+    $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
+    $this->form_validation->set_rules('nominal', 'Nominal', 'required');
+
+    if ($this->form_validation->run() == false) {
+      $this->load->view('template/header-dash', $data);
+      $this->load->view('template/navbar', $data);
+      $this->load->view('admin/masuk', $data);
+      $this->load->view('template/footer-dash');
+    } else {
+      $idtransaksi = date("dmY") . '-' . rand(0000, 9999);
+      $kas =  $this->db->get_where('tbl_kas', ['id_transaksi' => $idtransaksi])->row_array();
+      if ($kas) {
+        $idtransaksi = date("dmY") . '-' . rand(0000, 9999);
+      }
+
+      $sumber =  $this->db->get_where('tbl_sumber', ['id' => $this->input->post('sumber')])->row_array();
+
+      $data = [
+        'id_transaksi' => $idtransaksi,
+        'nama_transaksi' => $sumber['sumber'],
+        'nominal' => preg_replace('/[^0-9]/', '', $this->input->post('nominal')),
+        'date_trx' =>  $this->input->post('tanggal'),
+        'id_anggota' =>  $this->input->post('sumber'),
+        'jenis' => 'kas masuk'
+
+      ];
+
+      $data_kas = [
+        'id_transaksi' => $idtransaksi,
+        'tipe_kas' => 'masuk',
+        'tgl_transaksi' => $this->input->post('tanggal'),
+        'keterangan' => $sumber['sumber'],
+        'nominal' => preg_replace('/[^0-9]/', '', $this->input->post('nominal'))
+      ];
+
+      $this->db->insert('tbl_kas', $data_kas);
+      $this->db->insert('tbl_kasmasuk', $data);
+      $this->session->set_flashdata('berhasil', 'Ditambahkan');
+      redirect('admin/danamasuk');
+    }
+  }
+
+  public function hapusDanam()
+  {
+    $id = $this->input->get('id');
+
+    $danamasuk =  $this->db->get_where('tbl_kasmasuk', ['id_transaksi' => $id])->row_array();
+    $kas =  $this->db->get_where('tbl_kas', ['id_transaksi' => $danamasuk['id_transaksi']])->row_array();
+    $jurnal =  $this->db->get_where('jurnal', ['id_transaksi' => $kas['id_transaksi']])->row_array();
+
+    $this->db->delete('tbl_kasmasuk', array('id_transaksi' => $id));
+    $this->db->delete('tbl_kas', array('id_transaksi' => $danamasuk['id_transaksi']));
+    $this->db->delete('jurnal', array('id_transaksi' => $kas['id_transaksi']));
+    $this->db->delete('jurnal_detail', array('id_jurnal' => $jurnal['id']));
+
+
+    $this->session->set_flashdata('berhasil', 'Dihapus');
+    redirect('admin/danamasuk');
+  }
 } //END CLASS

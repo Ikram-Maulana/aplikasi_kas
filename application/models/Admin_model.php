@@ -48,4 +48,29 @@ class Admin_model extends CI_Model
     $this->db->where('id', $id_status);
     return $this->db->update('user', $data);
   }
+
+  public function getSumber($limit, $start, $keyword = null)
+  {
+    if ($keyword) {
+      $this->db->like('sumber', $keyword);
+    }
+    return $this->db->get('tbl_sumber', $limit, $start)->result_array();
+  }
+
+  public function getSumber2()
+  {
+    return $this->db->get('tbl_sumber')->result_array();
+  }
+
+  public function deleteSumber($id)
+  {
+    $this->db->where('id', $id);
+    $this->db->delete('tbl_sumber');
+  }
+
+  public function updateSumber($data, $id_sumber)
+  {
+    $this->db->where('id', $id_sumber);
+    return $this->db->update('tbl_sumber', $data);
+  }
 } //END CLASS
