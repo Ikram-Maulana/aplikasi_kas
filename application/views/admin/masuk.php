@@ -61,13 +61,12 @@
                 </thead>
                 <tbody>
                   <?php
-                  $i = 1;
                   foreach ($kasmasuk as $k) :
                     $date = date_create($k['date_trx']);
                   ?>
                   <tr class="tb-tnx-item">
                     <td class="tb-tnx-id">
-                      <a href="#"><span><?= $i++; ?></span></a>
+                      <a href="#"><span><?= ++$start; ?></span></a>
                     </td>
                     <td class="tb-tnx-info">
                       <div class="tb-tnx-desc">
@@ -102,7 +101,7 @@
                 </tbody>
               </table>
             </div><!-- .card-preview -->
-
+            <?= $this->pagination->create_links(); ?>
           </div>
         </div>
       </div>
@@ -139,7 +138,7 @@
                     value="<?= set_value('tanggal'); ?>">
                   <?= form_error('tanggal', '<small class="invalid">', '</small>'); ?>
                 </div>
-                <div class="form-note">Date format <code>mm/dd/yyyy</code></div>
+                <div class="form-note mb-1">Date format <code>mm/dd/yyyy</code></div>
                 <div class="form-group">
                   <label class="form-label" for="nominal">Nominal</label>
                   <div class="form-control-wrap">
@@ -152,10 +151,10 @@
                   <?= form_error('nominal', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
                 </div>
                 <div class="form-group">
-                  <a href="#" class="btn btn-lg btn-warning" data-toggle="modal" data-target="#sumberForm">Add New
-                    Dana Masuk
-                  </a>
                   <button type="submit" class="btn btn-lg btn-primary">Add</button>
+                  <a href="#" class="btn btn-lg btn-warning" data-toggle="modal" data-target="#sumberForm">Add New
+                    Sumber Dana
+                  </a>
                 </div>
               </form>
             </div>

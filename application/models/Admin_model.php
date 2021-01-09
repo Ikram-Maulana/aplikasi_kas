@@ -73,4 +73,12 @@ class Admin_model extends CI_Model
     $this->db->where('id', $id_sumber);
     return $this->db->update('tbl_sumber', $data);
   }
+
+  public function getDanmas($limit, $start, $keyword = null)
+  {
+    if ($keyword) {
+      $this->db->like('nama_transaksi', $keyword);
+    }
+    return $this->db->get('tbl_kasmasuk', $limit, $start)->result_array();
+  }
 } //END CLASS

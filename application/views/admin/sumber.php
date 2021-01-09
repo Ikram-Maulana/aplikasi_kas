@@ -84,6 +84,7 @@
                     </td>
                   </tr>
 
+
                   <!-- Modal Edit -->
                   <div class="modal fade" tabindex="-1" id="editForm<?= $s['id']; ?>">
                     <div class="modal-dialog" role="document">
@@ -128,7 +129,6 @@
           </div><!-- nk-block -->
 
         </div>
-      </div>
       </div>
       <!-- content @e -->
 
