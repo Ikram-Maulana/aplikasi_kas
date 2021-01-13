@@ -7,27 +7,27 @@
               <div class="nk-block-head">
                 <div class="nk-block-head-content danmas">
                   <h4 class="nk-block-title"><?= $title; ?></h4>
-                  <p>Laman untuk me-manage dana masuk.</p>
+                  <p>Laman untuk me-manage dana keluar.</p>
                 </div>
                 <div class="card border-left-primary shadow h-100 py-2 mb-1 mt-1 col-md-4">
                   <div class="card-body kas">
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
-                        <div class="text-xs font-weight-bold mb-1">Total Dana Masuk</div>
+                        <div class="text-xs font-weight-bold mb-1">Total Dana Keluar</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">Rp
-                          <?= number_format($total_kas['nominal']); ?></div>
+                          <?= number_format($total_kas2['nominal']); ?></div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <a href="#" class="btn btn-primary mt-2 mb-2" data-toggle="modal" data-target="#modalForm">Add Dana
-                  Masuk
+                  Keluar
                 </a>
               </div>
             </div>
 
             <!-- if empty -->
-            <?php if (empty($kasmasuk)) : ?>
+            <?php if (empty($kaskeluar)) : ?>
             <div class="example-alert">
               <div class="alert alert-fill alert-danger alert-icon mb-2"><em class="icon ni ni-alert-circle"></em>
                 <strong>Data Tidak Ditemukan</strong>
@@ -42,7 +42,7 @@
                     <th class="tb-tnx-id"><span class="">#</span></th>
                     <th class="tb-tnx-info">
                       <span class="tb-tnx-desc d-none d-sm-inline-block">
-                        <span>Sumber Dana Masuk</span>
+                        <span>Keterangan Dana Keluar</span>
                       </span>
                       <span class="tb-tnx-date d-md-inline-block d-none">
                         <span class="d-md-none">Date</span>
@@ -61,8 +61,8 @@
                 </thead>
                 <tbody>
                   <?php
-                  foreach ($kasmasuk as $k) :
-                    $date = date_create($k['date_trx']);
+                  foreach ($kaskeluar as $kl) :
+                    $date = date_create($kl['date_trx']);
                   ?>
                   <tr class="tb-tnx-item">
                     <td class="tb-tnx-id">
@@ -70,7 +70,7 @@
                     </td>
                     <td class="tb-tnx-info">
                       <div class="tb-tnx-desc">
-                        <span class="title"><?= $k['nama_transaksi']; ?></span>
+                        <span class="title"><?= $kl['nama_transaksi']; ?></span>
                       </div>
                       <div class="tb-tnx-date">
                         <span class="date"><?= date_format($date, "d F Y") ?></span>
@@ -78,7 +78,7 @@
                     </td>
                     <td class="tb-tnx-amount is-alt">
                       <div class="tb-tnx-total">
-                        <span class="amount">Rp <?= number_format($k['nominal'], 0, ',', '.') ?></span>
+                        <span class="amount">Rp <?= number_format($kl['nominal'], 0, ',', '.') ?></span>
                       </div>
                     </td>
                     <td class="tb-tnx-action">
@@ -87,7 +87,7 @@
                             class="icon ni ni-more-h"></em></a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
                           <ul class="link-list-plain">
-                            <li><a href="<?= base_url('admin/hapusdanam?id=') . $k['id_transaksi']; ?>" class="dbtn">
+                            <li><a href="<?= base_url('admin/hapusdanakel?id=') . $kl['id_transaksi']; ?>" class="dbtn">
                                 <span>Delete</span>
                               </a>
                             </li>
@@ -111,25 +111,21 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Add Dana Masuk</h5>
+              <h5 class="modal-title">Add Dana Keluar</h5>
               <a href="#" class="close" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
               </a>
             </div>
             <div class="berhasil" data-flashdata="<?= $this->session->flashdata('berhasil'); ?>"></div>
             <div class="modal-body">
-              <form action="<?= base_url('admin/danamasuk') ?>" class="form-validate is-alter" method="post">
+              <form action="<?= base_url('admin/danakeluar') ?>" class="form-validate is-alter" method="post">
                 <div class="form-group">
-                  <label class="form-label" for="sumber">Sumber</label>
+                  <label class="form-label" for="keterangan">Keterangan</label>
                   <div class="form-control-wrap">
-                    <select class="form-select form-control form-control-lg" id="sumber" name="sumber">
-                      <option value=" ">Default Option</option>
-                      <?php foreach ($sumber as $s) : ?>
-                      <option value="<?= $s['id'] ?>"><?= $s['sumber'] ?></option>
-                      <?php endforeach; ?>
-                    </select>
-                    <?= form_error('sumber', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+                    <input type="text" class="form-control" id="keterangan" name="keterangan"
+                      placeholder="Keterangan Dana Keluar" value="<?= set_value('keterangan'); ?>" required>
                   </div>
+                  <?= form_error('keterangan', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
                 </div>
                 <label class="form-label">Tanggal</label>
                 <div class="form-control-wrap focused">
@@ -151,9 +147,6 @@
                 </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-lg btn-primary">Add</button>
-                  <a href="#" class="btn btn-lg btn-warning" data-toggle="modal" data-target="#sumberForm">Add New
-                    Sumber Dana
-                  </a>
                 </div>
               </form>
             </div>
@@ -164,37 +157,6 @@
         </div>
       </div>
 
-      <!-- Modal SUmber Form -->
-      <div class="modal fade" tabindex="-1" id="sumberForm">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Add New Sumber Dana</h5>
-              <a href="#" class="close" data-dismiss="modal" aria-label="Close">
-                <em class="icon ni ni-cross"></em>
-              </a>
-            </div>
-            <div class="berhasil" data-flashdata="<?= $this->session->flashdata('berhasil'); ?>"></div>
-            <div class="modal-body">
-              <form action="<?= base_url('admin/addSumber') ?>" class="form-validate is-alter" method="post">
-                <div class="form-group">
-                  <label class="form-label" for="sumber">Sumber</label>
-                  <div class="form-control-wrap">
-                    <input type="text" class="form-control" id="sumber" name="sumber" required>
-                    <?= form_error('sumber', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <button type="submit" class="btn btn-lg btn-primary">Add</button>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer bg-light">
-              <span class="sub-text">© 2020 Ikram Maulana.</span>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <script>
 var rupiah = document.getElementById("nominal");

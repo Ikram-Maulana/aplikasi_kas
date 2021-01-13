@@ -81,4 +81,12 @@ class Admin_model extends CI_Model
     }
     return $this->db->get('tbl_kasmasuk', $limit, $start)->result_array();
   }
+
+  public function getDankel($limit, $start, $keyword = null)
+  {
+    if ($keyword) {
+      $this->db->like('nama_transaksi', $keyword);
+    }
+    return $this->db->get('tbl_kaskeluar', $limit, $start)->result_array();
+  }
 } //END CLASS

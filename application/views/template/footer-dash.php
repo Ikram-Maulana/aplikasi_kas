@@ -19,6 +19,7 @@
 <script src="<?= base_url('assets'); ?>/js/bundle.js?ver=2.2.0"></script>
 <script src="<?= base_url('assets'); ?>/js/scripts.js?ver=2.2.0"></script>
 <script src="<?= base_url('assets'); ?>/js/example-sweetalert.js?ver=2.2.0"></script>
+<script src="<?= base_url('assets'); ?>/js/example-chart.js?ver=2.2.0"></script>
 
 <script>
 $('.custom-file-input').on('change', function() {
