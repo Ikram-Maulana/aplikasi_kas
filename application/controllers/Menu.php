@@ -24,7 +24,7 @@ class Menu extends CI_Controller
     }
 
     // config
-    $config['base_url'] = 'http://localhost/uas_codelab_1930511075/menu/index';
+    $config['base_url'] = 'http://localhost/uas_1930511075/menu/index';
     $this->db->like('menu', $data['keyword']);
     $this->db->from('user_menu');
     $config['total_rows'] = $this->db->count_all_results();
@@ -137,7 +137,7 @@ class Menu extends CI_Controller
     }
 
     // config
-    $config['base_url'] = 'http://localhost/uas_codelab_1930511075/menu/submenu';
+    $config['base_url'] = 'http://localhost/uas_1930511075/menu/submenu';
     $this->db->like('title', $data['keyword']);
     $this->db->from('user_sub_menu');
     $config['total_rows'] = $this->db->count_all_results();

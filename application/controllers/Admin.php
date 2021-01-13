@@ -135,7 +135,7 @@ class Admin extends CI_Controller
     }
 
     // config
-    $config['base_url'] = 'http://localhost/uas_codelab_1930511075/admin/akun';
+    $config['base_url'] = 'http://localhost/uas_1930511075/admin/akun';
     $this->db->like('name', $data['keyword']);
     $this->db->or_like('email', $data['keyword']);
     $this->db->from('user');
@@ -240,7 +240,7 @@ class Admin extends CI_Controller
     }
 
     // config
-    $config['base_url'] = 'http://localhost/uas_codelab_1930511075/admin/sumberdana';
+    $config['base_url'] = 'http://localhost/uas_1930511075/admin/sumberdana';
     $this->db->like('sumber', $data['keyword']);
     $this->db->from('tbl_sumber');
     $config['total_rows'] = $this->db->count_all_results();
@@ -378,7 +378,7 @@ class Admin extends CI_Controller
     }
 
     // config
-    $config['base_url'] = 'http://localhost/uas_codelab_1930511075/admin/danamasuk';
+    $config['base_url'] = 'http://localhost/uas_1930511075/admin/danamasuk';
     $this->db->like('nama_transaksi', $data['keyword']);
     $this->db->from('tbl_kasmasuk');
     $config['total_rows'] = $this->db->count_all_results();
