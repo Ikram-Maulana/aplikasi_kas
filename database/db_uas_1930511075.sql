@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 13, 2021 at 04:12 AM
+-- Generation Time: Jan 14, 2021 at 08:55 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -39,18 +39,9 @@ CREATE TABLE `jurnal` (
 --
 
 INSERT INTO `jurnal` (`id`, `id_transaksi`, `keterangan`, `tgl_transaksi`) VALUES
-(3, '06012021-103', 'Pembelian', '2021-01-06 00:00:00'),
-(4, '06012021-2625', 'kas masuk', '2021-01-06 00:00:00'),
-(12, '08012021-4001', 'Uang Saku Ikram', '2021-01-08 00:00:00'),
-(14, '08012021-4175', 'Uang Saku Ikram', '2021-01-09 00:00:00'),
-(17, '08012021-4520', 'Ikram', '2021-01-08 00:00:00'),
-(18, '09012021-6772', 'Kemahasiswaan', '2021-01-09 00:00:00'),
-(19, '09012021-2029', 'Uang Kas', '2021-01-09 00:00:00'),
-(20, '09012021-2578', 'Ikram', '2021-01-09 00:00:00'),
-(21, '09012021-4634', 'Kemahasiswaan', '2021-01-09 00:00:00'),
-(22, '09012021-6822', 'Uang Saku Ikram', '2021-01-09 00:00:00'),
-(23, '09012021-6245', 'gadgetin', '2021-01-09 00:00:00'),
-(24, '09012021-4695', 'sponsor', '2021-01-09 00:00:00');
+(25, '13012021-6105', 'Kemahasiswaan', '2021-01-13 00:00:00'),
+(26, '13012021-5238', 'Pembelian Banner', '2021-01-13 00:00:00'),
+(27, '14012021-6600', 'Uang Kas', '2021-01-14 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -70,18 +61,9 @@ CREATE TABLE `jurnal_detail` (
 --
 
 INSERT INTO `jurnal_detail` (`id`, `id_jurnal`, `kredit`, `debit`) VALUES
-(3, '3', 0, 7000),
-(4, '4', 0, 2000),
-(12, '12', 0, 1000),
-(14, '14', 0, 10000),
-(17, '17', 0, 1000),
-(18, '18', 0, 10000),
-(19, '19', 0, 20000),
-(20, '20', 0, 6000),
-(21, '21', 0, 10000),
-(22, '22', 0, 20000),
-(23, '23', 0, 10000),
-(24, '24', 0, 10000);
+(1, '25', 0, 300000),
+(2, '26', 50000, 0),
+(3, '27', 0, 30000);
 
 -- --------------------------------------------------------
 
@@ -102,18 +84,9 @@ CREATE TABLE `tbl_kas` (
 --
 
 INSERT INTO `tbl_kas` (`id_transaksi`, `tipe_kas`, `keterangan`, `nominal`, `tgl_transaksi`) VALUES
-('06012021-103', 'masuk', 'Pembelian', 7000, '2021-01-06 00:00:00'),
-('06012021-2625', 'masuk', 'Donasi A/n ww', 2000, '2021-01-06 00:00:00'),
-('08012021-4001', 'masuk', 'Uang Saku Ikram', 1000, '2021-01-08 00:00:00'),
-('08012021-4175', 'masuk', 'Uang Saku Ikram', 10000, '2021-01-09 00:00:00'),
-('08012021-4520', 'masuk', 'Ikram', 1000, '2021-01-08 00:00:00'),
-('09012021-6772', 'masuk', 'Kemahasiswaan', 10000, '2021-01-09 00:00:00'),
-('09012021-2029', 'masuk', 'Uang Kas', 20000, '2021-01-09 00:00:00'),
-('09012021-2578', 'masuk', 'Ikram', 6000, '2021-01-09 00:00:00'),
-('09012021-4634', 'masuk', 'Kemahasiswaan', 10000, '2021-01-09 00:00:00'),
-('09012021-6822', 'masuk', 'Uang Saku Ikram', 20000, '2021-01-09 00:00:00'),
-('09012021-6245', 'masuk', 'gadgetin', 10000, '2021-01-09 00:00:00'),
-('09012021-4695', 'masuk', 'sponsor', 10000, '2021-01-09 00:00:00');
+('13012021-6105', 'masuk', 'Kemahasiswaan', 300000, '2021-01-13 00:00:00'),
+('13012021-5238', 'keluar', 'Pembelian Banner', 50000, '2021-01-13 00:00:00'),
+('14012021-6600', 'masuk', 'Uang Kas', 30000, '2021-01-14 00:00:00');
 
 --
 -- Triggers `tbl_kas`
@@ -151,7 +124,6 @@ CREATE TABLE `tbl_kaskeluar` (
   `nama_transaksi` varchar(255) DEFAULT NULL,
   `nominal` double(255,0) DEFAULT NULL,
   `jenis` varchar(255) DEFAULT NULL,
-  `id_anggota` varchar(255) DEFAULT NULL,
   `date_trx` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
@@ -159,8 +131,8 @@ CREATE TABLE `tbl_kaskeluar` (
 -- Dumping data for table `tbl_kaskeluar`
 --
 
-INSERT INTO `tbl_kaskeluar` (`id`, `id_transaksi`, `nama_transaksi`, `nominal`, `jenis`, `id_anggota`, `date_trx`) VALUES
-(2, '06012021-2625', 'Donasi A/n ww', 2000, 'kas masuk', '1', '2021-01-06 00:00:00');
+INSERT INTO `tbl_kaskeluar` (`id`, `id_transaksi`, `nama_transaksi`, `nominal`, `jenis`, `date_trx`) VALUES
+(1, '13012021-5238', 'Pembelian Banner', 50000, 'kas keluar', '2021-01-13 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -183,17 +155,8 @@ CREATE TABLE `tbl_kasmasuk` (
 --
 
 INSERT INTO `tbl_kasmasuk` (`id`, `id_transaksi`, `nama_transaksi`, `nominal`, `jenis`, `id_anggota`, `date_trx`) VALUES
-(2, '06012021-2625', 'Kemahasiswaan', 2000, 'kas masuk', '1', '2021-01-06 00:00:00'),
-(10, '08012021-4001', 'Uang Saku Ikram', 1000, 'kas masuk', '11', '2021-01-08 00:00:00'),
-(12, '08012021-4175', 'Uang Saku Ikram', 10000, 'kas masuk', '11', '2021-01-09 00:00:00'),
-(15, '08012021-4520', 'Ikram', 1000, 'kas masuk', '4', '2021-01-08 00:00:00'),
-(16, '09012021-6772', 'Kemahasiswaan', 10000, 'kas masuk', '2', '2021-01-09 00:00:00'),
-(17, '09012021-2029', 'Uang Kas', 20000, 'kas masuk', '3', '2021-01-09 00:00:00'),
-(18, '09012021-2578', 'Ikram', 6000, 'kas masuk', '4', '2021-01-09 00:00:00'),
-(19, '09012021-4634', 'Kemahasiswaan', 10000, 'kas masuk', '2', '2021-01-09 00:00:00'),
-(20, '09012021-6822', 'Uang Saku Ikram', 20000, 'kas masuk', '11', '2021-01-09 00:00:00'),
-(21, '09012021-6245', 'gadgetin', 10000, 'kas masuk', '12', '2021-01-09 00:00:00'),
-(22, '09012021-4695', 'sponsor', 10000, 'kas masuk', '13', '2021-01-09 00:00:00');
+(1, '13012021-6105', 'Kemahasiswaan', 300000, 'kas masuk', '1', '2021-01-13 00:00:00'),
+(2, '14012021-6600', 'Uang Kas', 30000, 'kas masuk', '2', '2021-01-14 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -211,18 +174,8 @@ CREATE TABLE `tbl_sumber` (
 --
 
 INSERT INTO `tbl_sumber` (`id`, `sumber`) VALUES
-(2, 'Kemahasiswaan'),
-(3, 'Uang Kas'),
-(4, 'Ikram'),
-(5, 'sss'),
-(6, 'ssss'),
-(7, 'sssss'),
-(8, 'testo'),
-(9, 'testi'),
-(10, 'ites'),
-(11, 'Uang Saku Ikram'),
-(12, 'gadgetin'),
-(13, 'sponsor');
+(1, 'Kemahasiswaan'),
+(2, 'Uang Kas');
 
 -- --------------------------------------------------------
 
@@ -250,8 +203,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`, `phone`, `birthday`, `address`) VALUES
 (1, 'Ikram Maulana', 'ikram075@ummi.ac.id', 'IMG_20191201_171417_5305.jpg', '$2y$10$mu.NkJxaPOMcwBeFOpNffeO8/p/RSMb5blxlVajiogR7VALQBVxKq', 1, 1, 1609256295, '085156590021', '12/29/2020', 'Jl. Brawijaya 1 No.30'),
-(7, 'Zahran Daak Janidri', 'ikram_maulana@onedrive.web.id', 'IMG_20191201_171417_5306.jpg', '$2y$10$/tgmluNHP8TsxJpco7z9h.MjhEc7V6Gglu6JVAXuS9/P4wQ.G64ra', 2, 1, 1609844270, '081906055080', '01/05/2021', 'Jl. Brawijaya 1 No.30'),
-(8, 'farikh', 'farikhfadhil123@gmail.com', 'default.jpg', '$2y$10$qKBoy/PcomTH8gKTNVE42.6/WG6xGHlsOqOBZvlAWPQXY74KKnsi.', 2, 0, 1610011258, '081906055080', '01/07/2021', 'hjghjh');
+(7, 'Zahran Daak Janidri', 'ikram_maulana@onedrive.web.id', 'IMG_20191201_171417_5306.jpg', '$2y$10$/tgmluNHP8TsxJpco7z9h.MjhEc7V6Gglu6JVAXuS9/P4wQ.G64ra', 2, 1, 1609844270, '081906055080', '01/05/2021', 'Jl. Brawijaya 1 No.30');
 
 -- --------------------------------------------------------
 
@@ -350,9 +302,8 @@ CREATE TABLE `user_sub_menu` (
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
 (7, 2, 'Sumber Dana', 'admin/sumberdana', 'icon ni ni-tranx', 1),
 (8, 2, 'Dana Masuk', 'admin/danamasuk', 'icon ni ni-wallet-in', 1),
-(9, 2, 'Dana Keluar', 'admin/keluar', 'icon ni ni-wallet-out', 1),
-(11, 2, 'SPP (Optional)', 'admin/spp', 'icon ni ni-grid-alt', 1),
-(12, 3, 'Laporan Rekapitulasi', 'laporan', 'icon ni ni-file-docs', 1),
+(9, 2, 'Dana Keluar', 'admin/danakeluar', 'icon ni ni-wallet-out', 1),
+(12, 3, 'Laporan Rekapitulasi', 'laporan/index', 'icon ni ni-file-docs', 1),
 (13, 4, 'Daftar Akun', 'admin/akun', 'icon ni ni-user-list', 1),
 (14, 6, 'My Profile', 'user/index', 'icon ni ni-user', 1),
 (15, 6, 'Edit Account', 'user/edit', 'icon ni ni-account-setting', 1),
@@ -461,13 +412,13 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `jurnal`
 --
 ALTER TABLE `jurnal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `jurnal_detail`
 --
 ALTER TABLE `jurnal_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_kaskeluar`
@@ -479,13 +430,13 @@ ALTER TABLE `tbl_kaskeluar`
 -- AUTO_INCREMENT for table `tbl_kasmasuk`
 --
 ALTER TABLE `tbl_kasmasuk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_sumber`
 --
 ALTER TABLE `tbl_sumber`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
