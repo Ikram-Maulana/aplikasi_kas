@@ -18,6 +18,7 @@ class Admin extends CI_Controller
     $data['title'] = 'Dashboard | Kas UPM';
     $this->db->select_sum('nominal');
     $data['total_masuk'] = $this->db->get('tbl_kasmasuk')->row_array();
+    $this->db->select_sum('nominal');
     $data['total_kas2'] = $this->db->get('tbl_kaskeluar')->row_array();
 
     $this->load->view('template/header-dash', $data);
