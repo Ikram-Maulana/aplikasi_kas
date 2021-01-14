@@ -33,7 +33,8 @@
                                       class="icon ni ni-wallet-in"></em><span>Add Dana
                                       Masuk</span></a>
                                 </li>
-                                <li><a href="#"><em class="icon ni ni-wallet-out"></em><span>Add Dana
+                                <li><a href="<?= base_url('admin/danakeluar'); ?>"><em
+                                      class="icon ni ni-wallet-out"></em><span>Add Dana
                                       Keluar</span></a>
                                 </li>
                               </ul>
