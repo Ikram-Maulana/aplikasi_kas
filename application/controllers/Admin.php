@@ -585,4 +585,22 @@ class Admin extends CI_Controller
     $this->session->set_flashdata('berhasil', 'Dihapus');
     redirect('admin/danamasuk');
   }
+
+  public function hapusDanakel()
+  {
+    $id = $this->input->get('id');
+
+    $danakeluar =  $this->db->get_where('tbl_kaskeluar', ['id_transaksi' => $id])->row_array();
+    $kas =  $this->db->get_where('tbl_kas', ['id_transaksi' => $danakeluar['id_transaksi']])->row_array();
+    $jurnal =  $this->db->get_where('jurnal', ['id_transaksi' => $kas['id_transaksi']])->row_array();
+
+    $this->db->delete('tbl_kaskeluar', array('id_transaksi' => $id));
+    $this->db->delete('tbl_kas', array('id_transaksi' => $danakeluar['id_transaksi']));
+    $this->db->delete('jurnal', array('id_transaksi' => $kas['id_transaksi']));
+    $this->db->delete('jurnal_detail', array('id_jurnal' => $jurnal['id']));
+
+
+    $this->session->set_flashdata('berhasil', 'Dihapus');
+    redirect('admin/danakeluar');
+  }
 } //END CLASS
