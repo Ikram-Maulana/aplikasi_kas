@@ -24,6 +24,7 @@ class Laporan extends CI_Controller
     if ($this->form_validation->run() == false) {
       $this->load->view('template/header-dash', $data);
       $this->load->view('template/navbar', $data);
+      $this->load->view('template/sidebar', $data);
       $this->load->view('laporan/index', $data);
       $this->load->view('template/footer-dash', $data);
     } else {
@@ -54,6 +55,7 @@ class Laporan extends CI_Controller
 
     $this->load->view('template/header-dash', $data);
     $this->load->view('template/navbar', $data);
+    $this->load->view('template/sidebar', $data);
     $this->load->view('laporan/search', $data);
     $this->load->view('template/footer-dash', $data);
   }

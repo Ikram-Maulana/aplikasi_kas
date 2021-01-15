@@ -39,6 +39,22 @@ $("#swal-6").click(function() {
     });
 });
 
+$('.logout').on('click', function (e) {
+  e.preventDefault();
+  const href = $(this).attr('href');
+  swal({
+    title: 'Ready to Leave?',
+    text: 'Select "Ok" below if you are ready to end your current session',
+    icon: 'warning',
+    buttons: true,
+    dangerMode: true,
+  }).then( (logout) => {
+    if (logout) {
+      document.location.href = href;
+    }
+  });
+});
+
 $("#swal-7").click(function() {
   swal({
     title: 'What is your name?',

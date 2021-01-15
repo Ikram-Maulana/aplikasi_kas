@@ -23,6 +23,7 @@ class Admin extends CI_Controller
 
     $this->load->view('template/header-dash', $data);
     $this->load->view('template/navbar', $data);
+    $this->load->view('template/sidebar', $data);
     $this->load->view('admin/index', $data);
     $this->load->view('template/footer-dash', $data);
   }
@@ -38,6 +39,7 @@ class Admin extends CI_Controller
     if ($this->form_validation->run() == false) {
       $this->load->view('template/header-dash', $data);
       $this->load->view('template/navbar', $data);
+      $this->load->view('template/sidebar', $data);
       $this->load->view('admin/role', $data);
       $this->load->view('template/footer-dash');
     } else {
@@ -58,6 +60,7 @@ class Admin extends CI_Controller
 
     $this->load->view('template/header-dash', $data);
     $this->load->view('template/navbar', $data);
+    $this->load->view('template/sidebar', $data);
     $this->load->view('admin/role-access', $data);
     $this->load->view('template/footer-dash');
   }
@@ -97,6 +100,7 @@ class Admin extends CI_Controller
     if ($this->form_validation->run() == false) {
       $this->load->view('template/header-dash', $data);
       $this->load->view('template/navbar', $data);
+      $this->load->view('template/sidebar', $data);
       $this->load->view('admin/role', $data);
       $this->load->view('template/footer-dash', $data);
     } else {
@@ -184,6 +188,7 @@ class Admin extends CI_Controller
 
     $this->load->view('template/header-dash', $data);
     $this->load->view('template/navbar', $data);
+    $this->load->view('template/sidebar', $data);
     $this->load->view('admin/akun', $data);
     $this->load->view('template/footer-dash');
   }
@@ -202,6 +207,7 @@ class Admin extends CI_Controller
     if ($this->form_validation->run() == false) {
       $this->load->view('template/header-dash', $data);
       $this->load->view('template/navbar', $data);
+      $this->load->view('template/sidebar', $data);
       $this->load->view('admin/akun', $data);
       $this->load->view('template/footer-dash', $data);
     } else {
@@ -292,6 +298,7 @@ class Admin extends CI_Controller
     if ($this->form_validation->run() == false) {
       $this->load->view('template/header-dash', $data);
       $this->load->view('template/navbar', $data);
+      $this->load->view('template/sidebar', $data);
       $this->load->view('admin/sumber', $data);
       $this->load->view('template/footer-dash');
     } else {
@@ -315,6 +322,7 @@ class Admin extends CI_Controller
     if ($this->form_validation->run() == false) {
       $this->load->view('template/header-dash', $data);
       $this->load->view('template/navbar', $data);
+      $this->load->view('template/sidebar', $data);
       $this->load->view('admin/sumber', $data);
       $this->load->view('template/footer-dash', $data);
     } else {
@@ -357,6 +365,7 @@ class Admin extends CI_Controller
     if ($this->form_validation->run() == false) {
       $this->load->view('template/header-dash', $data);
       $this->load->view('template/navbar', $data);
+      $this->load->view('template/sidebar', $data);
       $this->load->view('admin/sumber', $data);
       $this->load->view('template/footer-dash');
     } else {
@@ -433,6 +442,7 @@ class Admin extends CI_Controller
     if ($this->form_validation->run() == false) {
       $this->load->view('template/header-dash', $data);
       $this->load->view('template/navbar', $data);
+      $this->load->view('template/sidebar', $data);
       $this->load->view('admin/masuk', $data);
       $this->load->view('template/footer-dash');
     } else {
@@ -536,6 +546,7 @@ class Admin extends CI_Controller
     if ($this->form_validation->run() == false) {
       $this->load->view('template/header-dash', $data);
       $this->load->view('template/navbar', $data);
+      $this->load->view('template/sidebar', $data);
       $this->load->view('admin/keluar', $data);
       $this->load->view('template/footer-dash');
     } else {

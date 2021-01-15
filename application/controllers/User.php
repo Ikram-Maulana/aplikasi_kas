@@ -18,6 +18,7 @@ class User extends CI_Controller
 
     $this->load->view('template/header-dash', $data);
     $this->load->view('template/navbar', $data);
+    $this->load->view('template/sidebar', $data);
     $this->load->view('user/index', $data);
     $this->load->view('template/footer-dash');
   }
@@ -35,6 +36,7 @@ class User extends CI_Controller
     if ($this->form_validation->run() == false) {
       $this->load->view('template/header-dash', $data);
       $this->load->view('template/navbar', $data);
+      $this->load->view('template/sidebar', $data);
       $this->load->view('user/edit', $data);
       $this->load->view('template/footer-dash');
     } else {
@@ -89,6 +91,7 @@ class User extends CI_Controller
     if ($this->form_validation->run() == false) {
       $this->load->view('template/header-dash', $data);
       $this->load->view('template/navbar', $data);
+      $this->load->view('template/sidebar', $data);
       $this->load->view('user/setting', $data);
       $this->load->view('template/footer-dash');
     } else {

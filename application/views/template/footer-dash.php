@@ -1,25 +1,40 @@
-<!-- footer @s -->
-<div class="nk-footer">
-  <div class="container-fluid">
-    <div class="nk-footer-wrap">
-      <div class="nk-footer-copyright"> &copy; 2020 Ikram Maulana. Created for <a href="https://upmummi.my.id"
-          target="_blank">Unit Pers Mahasiswa UMMI</a>
-      </div>
-    </div>
+<footer class="main-footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
   </div>
+  <div class="footer-right">
+    2.3.0
+  </div>
+</footer>
 </div>
-<!-- footer @e -->
 </div>
-<!-- wrap @e -->
-</div>
-<!-- main @e -->
-</div>
-<!-- app-root @e -->
-<!-- JavaScript -->
-<script src="<?= base_url('assets'); ?>/js/bundle.js?ver=2.2.0"></script>
-<script src="<?= base_url('assets'); ?>/js/scripts.js?ver=2.2.0"></script>
-<script src="<?= base_url('assets'); ?>/js/example-sweetalert.js?ver=2.2.0"></script>
-<script src="<?= base_url('assets'); ?>/js/example-chart.js?ver=2.2.0"></script>
+
+<!-- General JS Scripts -->
+<script src="<?= base_url('assets'); ?>/modules/jquery-3.3.1.min.js"></script>
+<script src="<?= base_url('assets'); ?>/modules/popper.min.js"></script>
+<script src="<?= base_url('assets'); ?>/modules/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?= base_url('assets'); ?>/modules/nicescroll/jquery.nicescroll.min.js"></script>
+<script src="<?= base_url('assets'); ?>/modules/moment.min.js"></script>
+<script src="<?= base_url('assets'); ?>/js/stisla.js"></script>
+<script src="<?= base_url('assets'); ?>/modules/fontawesome/js/2d24ac2742.js"></script>
+
+<!-- JS Libraies -->
+<script src="<?= base_url('assets'); ?>/modules/simpleweather/jquery.simpleWeather.min.js"></script>
+<script src="<?= base_url('assets'); ?>/modules/chart.js/dist/Chart.min.js"></script>
+<script src="<?= base_url('assets'); ?>/modules/jqvmap/dist/jquery.vmap.min.js"></script>
+<script src="<?= base_url('assets'); ?>/modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+<script src="<?= base_url('assets'); ?>/modules/summernote/dist/summernote-bs4.js"></script>
+<script src="<?= base_url('assets'); ?>/modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+<script src="<?= base_url('assets'); ?>/modules/sweetalert/sweetalert.min.js"></script>
+
+
+<!-- Template JS File -->
+<script src="<?= base_url('assets'); ?>/js/scripts.js"></script>
+<script src="<?= base_url('assets'); ?>/js/custom.js"></script>
+
+<!-- Page Specific JS File -->
+<script src="<?= base_url('assets'); ?>/js/page/index-0.js"></script>
+<script src="<?php echo base_url('assets'); ?>/js/page/modules-sweetalert.js"></script>
 
 <script>
 $('.custom-file-input').on('change', function() {
@@ -45,7 +60,6 @@ $('.form-check-input').on('click', function() {
   });
 });
 </script>
-
 
 </body>
 

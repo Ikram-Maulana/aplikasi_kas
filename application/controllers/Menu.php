@@ -72,6 +72,7 @@ class Menu extends CI_Controller
     if ($this->form_validation->run() == false) {
       $this->load->view('template/header-dash', $data);
       $this->load->view('template/navbar', $data);
+      $this->load->view('template/sidebar', $data);
       $this->load->view('menu/index', $data);
       $this->load->view('template/footer-dash');
     } else {
@@ -95,6 +96,7 @@ class Menu extends CI_Controller
     if ($this->form_validation->run() == false) {
       $this->load->view('template/header-dash', $data);
       $this->load->view('template/navbar', $data);
+      $this->load->view('template/sidebar', $data);
       $this->load->view('menu/index', $data);
       $this->load->view('template/footer-dash', $data);
     } else {
@@ -189,6 +191,7 @@ class Menu extends CI_Controller
     if ($this->form_validation->run() == false) {
       $this->load->view('template/header-dash', $data);
       $this->load->view('template/navbar', $data);
+      $this->load->view('template/sidebar', $data);
       $this->load->view('menu/submenu', $data);
       $this->load->view('template/footer-dash');
     } else {
@@ -222,6 +225,7 @@ class Menu extends CI_Controller
     if ($this->form_validation->run() == false) {
       $this->load->view('template/header-dash', $data);
       $this->load->view('template/navbar', $data);
+      $this->load->view('template/sidebar', $data);
       $this->load->view('menu/submenu', $data);
       $this->load->view('template/footer-dash', $data);
     } else {
