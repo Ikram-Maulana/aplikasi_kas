@@ -1,85 +1,74 @@
-<div class="nk-app-root">
-  <!-- main @s -->
-  <div class="nk-main ">
-    <!-- wrap @s -->
-    <div class="nk-wrap nk-wrap-nosidebar">
-      <!-- content @s -->
-      <div class="nk-content ">
-        <div class="nk-block nk-block-middle nk-auth-body wide-xs">
+<div id="app">
+  <section class="section">
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
           <div class="brand-logo pb-4 text-center">
             <a class="logo-link">
               <img class="logo-dark logo-img logo-img-lg" src="<?= base_url(''); ?>/images/logo-auth.png"
                 alt="logo-dark">
             </a>
           </div>
-          <div class="card card-bordered">
-            <div class="card-inner card-inner-lg">
-              <div class="nk-block-head">
-                <div class="nk-block-head-content">
-                  <h4 class="nk-block-title">Register</h4>
-                  <div class="nk-block-des">
-                    <p>Buat akun baru untuk masuk ke aplikasi kas.</p>
-                  </div>
-                </div>
-              </div>
+
+          <div class="card card-primary">
+            <div class="card-header">
+              <h4>Register</h4>
+            </div>
+
+            <div class="card-body">
               <form class="form-validate" action="<?= base_url('auth/register') ?>" method="post">
-                <div class="form-group">
-                  <label class="form-label" for="name">Full Name <span
-                      class="badge badge-danger">required</span></label>
-                  <input type="text" class="form-control form-control-lg" id="name" placeholder="Enter your full name"
-                    name="name" value="<?= set_value('name'); ?>" autofocus>
-                  <?= form_error('name', '<small class="invalid">', '</small>'); ?>
+                <?= $this->session->flashdata('message'); ?>
+                <div class="form-group mb-2">
+                  <label for="name">Full Name</label>
+                  <input type="text" class="form-control" id="name" name="name" tabindex="1"
+                    value="<?= set_value('name'); ?>" autofocus>
+                  <?= form_error('name', '<div class="text-danger"><small>', '</small></div>'); ?>
+                </div>
+                <div class="form-group mb-2">
+                  <label for="email">Email</label>
+                  <input id="email" type="text" class="form-control" name="email" tabindex="1"
+                    value="<?= set_value('email'); ?>">
+                  <?= form_error('email', '<div class="text-danger"><small>', '</small></div>'); ?>
+                </div>
+                <div class="form-group mb-2">
+                  <label for="phone">Phone Number</label>
+                  <input id="phone" type="text" class="form-control" name="phone" tabindex="1"
+                    value="<?= set_value('phone'); ?>">
+                  <?= form_error('phone', '<div class="text-danger"><small>', '</small></div>'); ?>
+                </div>
+                <div class="form-group mb-2">
+                  <label for="birthday">Birthday Date</label>
+                  <input id="birthday" type="date" class="form-control" name="birthday" tabindex="1"
+                    value="<?= set_value('birthday'); ?>">
+                  <?= form_error('birthday', '<div class="text-danger"><small>', '</small></div>'); ?>
+                </div>
+                <div class="form-group mb-2">
+                  <label for="address">Address</label>
+                  <input id="address" type="date" class="form-control" name="address" tabindex="1"
+                    value="<?= set_value('address'); ?>">
+                  <?= form_error('address', '<div class="text-danger"><small>', '</small></div>'); ?>
+                </div>
+                <div class="form-group mb-2">
+                  <label for="password">Password</label>
+                  <input id="password" type="date" class="form-control" name="password" tabindex="1">
+                  <?= form_error('password', '<div class="text-danger"><small>', '</small></div>'); ?>
                 </div>
                 <div class="form-group">
-                  <label class="form-label" for="email">Email <span class="badge badge-danger">required</span></label>
-                  <input type="text" class="form-control form-control-lg" id="email"
-                    placeholder="Enter your email address" name="email" value="<?= set_value('email'); ?>">
-                  <?= form_error('email', '<small class="invalid">', '</small>'); ?>
+                  <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                    Register
+                  </button>
                 </div>
-                <div class="form-group">
-                  <label class="form-label" for="phone">Phone Number <span
-                      class="badge badge-danger">required</span></label>
-                  <input type="text" class="form-control form-control-lg" id="phone"
-                    placeholder="Enter your phone number" name="phone" value="<?= set_value('phone'); ?>">
-                  <?= form_error('phone', '<small class="invalid">', '</small>'); ?>
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Birthday <span class="badge badge-danger">required</span></label>
-                  <div class="form-control-wrap focused">
-                    <input type="text" class="form-control date-picker" id="birthday"
-                      placeholder="Enter your birthday date" name="birthday" value="<?= set_value('birthday'); ?>">
-                    <?= form_error('birthday', '<small class="invalid">', '</small>'); ?>
-                  </div>
-                  <div class="form-note">Date format <code>mm/dd/yyyy</code></div>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="email">Address <span class="badge badge-danger">required</span></label>
-                  <input type="text" class="form-control form-control-lg" id="address" placeholder="Enter your address"
-                    name="address" value="<?= set_value('address'); ?>">
-                  <?= form_error('address', '<small class="invalid">', '</small>'); ?>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="password">Password <span
-                      class="badge badge-danger">required</span></label>
-                  <div class="form-control-wrap">
-                    <a href="#" class="form-icon form-icon-right passcode-switch" data-target="password">
-                      <em class="passcode-icon icon-show icon ni ni-eye"></em>
-                      <em class="passcode-icon icon-hide icon ni ni-eye-off"></em>
-                    </a>
-                    <input type="password" class="form-control form-control-lg" id="password"
-                      placeholder="Enter your password" name="password">
-                    <?= form_error('password', '<small class="invalid">', '</small>'); ?>
-                  </div>
-                </div>
-                <div class="form-group">
-                </div>
-                <div class="form-group">
-                  <button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
+                <div class="form-note-s2 text-center mt-3"> Already have an account? <a
+                    href="<?= base_url('auth'); ?>"><strong>Sign in instead</strong></a>
                 </div>
               </form>
-              <div class="form-note-s2 text-center pt-4"> Already have an account? <a
-                  href="<?= base_url('auth'); ?>"><strong>Sign in instead</strong></a>
-              </div>
             </div>
           </div>
+          <div class="simple-footer">
+            Copyright &copy; Stisla 2018
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
+</div>

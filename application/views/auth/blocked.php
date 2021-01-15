@@ -1,24 +1,22 @@
-<div class="nk-app-root">
-  <!-- main @s -->
-  <div class="nk-main ">
-    <!-- wrap @s -->
-    <div class="nk-wrap nk-wrap-nosidebar">
-      <!-- content @s -->
-      <div class="nk-content ">
-        <div class="nk-block nk-block-middle wide-xs mx-auto">
-          <div class="nk-block-content nk-error-ld text-center">
-            <h1 class="nk-error-head">403</h1>
-            <h3 class="nk-error-title">Access Forbidden</h3>
-            <p class="nk-error-text">We are very sorry for inconvenience. It looks like you’re try to access a page
-              that either has been deleted or never existed.</p>
-            <a href="<?= base_url('user/index'); ?>" class="btn btn-lg btn-primary mt-2">Back To Dashboard</a>
+<div id="app">
+  <section class="section">
+    <div class="container mt-5">
+      <div class="page-error">
+        <div class="page-inner">
+          <h1>403</h1>
+          <div class="page-description">
+            You do not have access to this page.
           </div>
-        </div><!-- .nk-block -->
+          <div class="page-search">
+            <div class="mt-3">
+              <a href="<?= base_url('user/index'); ?>">Back to Home</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- wrap @e -->
+      <div class="simple-footer mt-5">
+        Copyright &copy; Stisla 2018
+      </div>
     </div>
-    <!-- content @e -->
-  </div>
-  <!-- main @e -->
+  </section>
 </div>
-<!-- app-root @e -->

@@ -1,25 +1,22 @@
-<div class="nk-app-root">
-  <!-- main @s -->
-  <div class="nk-main ">
-    <!-- wrap @s -->
-    <div class="nk-wrap nk-wrap-nosidebar">
-      <!-- content @s -->
-      <div class="nk-content ">
-        <div class="nk-block nk-block-middle wide-md mx-auto">
-          <div class="nk-block-content nk-error-ld text-center">
-            <img class="nk-error-gfx" src="<?= base_url(''); ?>/images/gfx/error-404.svg" alt="">
-            <div class="wide-xs mx-auto">
-              <h3 class="nk-error-title">Oops! Why you’re here?</h3>
-              <p class="nk-error-text">We are very sorry for inconvenience. It looks like you’re try to access a page
-                that either has been deleted or never existed.</p>
+<div id="app">
+  <section class="section">
+    <div class="container mt-5">
+      <div class="page-error">
+        <div class="page-inner">
+          <h1>404</h1>
+          <div class="page-description">
+            The page you were looking for could not be found.
+          </div>
+          <div class="page-search">
+            <div class="mt-3">
+              <a href="<?= base_url('user/index'); ?>">Back to Home</a>
             </div>
           </div>
-        </div><!-- .nk-block -->
+        </div>
       </div>
-      <!-- wrap @e -->
+      <div class="simple-footer mt-5">
+        Copyright &copy; Stisla 2018
+      </div>
     </div>
-    <!-- content @e -->
-  </div>
-  <!-- main @e -->
+  </section>
 </div>
-<!-- app-root @e -->

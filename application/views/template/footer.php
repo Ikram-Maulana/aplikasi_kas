@@ -1,14 +1,19 @@
-</div>
-<!-- wrap @e -->
-</div>
-<!-- content @e -->
-</div>
-<!-- main @e -->
-</div>
-<!-- app-root @e -->
-<!-- JavaScript -->
-<script src="<?= base_url('assets'); ?>/js/bundle.js?ver=2.2.0"></script>
-<script src="<?= base_url('assets'); ?>/js/scripts.js?ver=2.2.0"></script>
-<script src="<?= base_url('assets'); ?>/js/example-sweetalert.js?ver=2.2.0"></script>
+  <!-- General JS Scripts -->
+  <script src="<?= base_url('assets') ?>/modules/jquery-3.3.1.min.js"></script>
+  <script src="<?= base_url('assets') ?>/modules/popper.min.js"></script>
+  <script src="<?= base_url('assets') ?>/modules/bootstrap/js/bootstrap.min.js"></script>
+  <script src="<?= base_url('assets') ?>/modules/nicescroll/jquery.nicescroll.min.js"></script>
+  <script src="<?= base_url('assets') ?>/modules/moment.min.js"></script>
+  <script src="<?= base_url('assets') ?>/js/stisla.js"></script>
+  <script src="<?= base_url('assets') ?>/modules/fontawesome/js/2d24ac2742.js"></script>
 
-</html>
+  <!-- JS Libraies -->
+
+  <!-- Template JS File -->
+  <script src="<?= base_url('assets') ?>/js/scripts.js"></script>
+  <script src="<?= base_url('assets') ?>/js/custom.js"></script>
+
+  <!-- Page Specific JS File -->
+  </body>
+
+  </html>
