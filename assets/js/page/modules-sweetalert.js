@@ -59,13 +59,15 @@ $(".del-btn").on("click", function (e) {
 
   swal({
       title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this imaginary file!",
+      text: "Once deleted, you will not be able to recover this file!",
       icon: "warning",
       buttons: true,
       dangerMode: true,
   }).then((result) => {
-      if (result.value) {
+      if (result) {
           document.location.href = href;
+      } else {
+        swal('Your file is safe!');
       }
   });
 });
