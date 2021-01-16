@@ -4,12 +4,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Menu_model extends CI_Model
 {
 
-  public function get_menu($limit, $start, $keyword = null)
+  public function get_menu()
   {
-    if ($keyword) {
-      $this->db->like('menu', $keyword);
-    }
-    return $this->db->get('user_menu', $limit, $start)->result_array();
+    return $this->db->get('user_menu')->result_array();
   }
 
   public function getSubMenu($limit, $start, $keyword = null)

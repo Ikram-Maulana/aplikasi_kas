@@ -28,11 +28,11 @@ $("[data-checkboxes]").each(function() {
   });
 });
 
-$("#table-1").dataTable({
-  "columnDefs": [
-    { "sortable": false, "targets": [2,3] }
-  ]
+$(".tables-1").dataTable({
+    "ordering": false,
+    "info":     false 
 });
+
 $("#table-2").dataTable({
   "columnDefs": [
     { "sortable": false, "targets": [0,2,3] }
