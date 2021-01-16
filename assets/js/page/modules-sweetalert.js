@@ -49,7 +49,7 @@ if(Berhasil) {
 }
 
 if(Gagal) {
-  swal('Good Job', 'Data Gagal ' + Gagal, 'warning');
+  swal('Error', 'Data Gagal ' + Gagal, 'warning');
 }
 
 // del-btn sweet alert
