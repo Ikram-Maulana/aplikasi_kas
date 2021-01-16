@@ -168,11 +168,11 @@
            <div class="modal-header">
              <h5 class="modal-title">Edit Sub Menu</h5>
              <a href="#" class="close" data-dismiss="modal" aria-label="Close">
-               <em class="icon ni ni-cross"></em>
+               <em class="fas fa-times"></em>
              </a>
            </div>
            <div class="berhasil" data-flashdata="<?= $this->session->flashdata('berhasil'); ?>"></div>
-           <div class="modal-body">
+           <div class="modal-body" style="padding-bottom: 0px;">
              <form action="<?= base_url('menu/editsubmenu/' . $sm['id']); ?>" class="form-validate is-alter"
                method="post">
                <input type="hidden" name="id" value="<?php echo $sm['id']; ?>">
@@ -210,28 +210,33 @@
                    <?= form_error('icon', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
                  </div>
                </div>
-               <div class="form-group">
+               <div class="form-group mb-4">
                  <div class="preview-block">
                    <span class="preview-title overline-title">Active Status</span>
-                   <?php if ($sm['is_active'] == 1) : ?>
-                   <div class="form-check form-check-inline">
-                     <input class="form-check-input" type="radio" name="is_active" id="inlineRadio1" value="1" checked>
-                     <label class="form-check-label" for="inlineRadio1">Active</label>
+                   <br>
+                   <div class="radio mt-3">
+                     <?php if ($sm['is_active'] == 1) : ?>
+                     <div class="form-check form-check-inline">
+                       <input class="form-check-input" type="radio" name="is_active" id="inlineRadio1" value="1"
+                         checked>
+                       <label class="form-check-label" for="inlineRadio1">Active</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                       <input class="form-check-input" type="radio" name="is_active" id="inlineRadio2" value="0">
+                       <label class="form-check-label" for="inlineRadio2">Non-Active</label>
+                     </div>
+                     <?php else : ?>
+                     <div class="form-check form-check-inline">
+                       <input class="form-check-input" type="radio" name="is_active" id="inlineRadio1" value="1">
+                       <label class="form-check-label" for="inlineRadio1">Active</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                       <input class="form-check-input" type="radio" name="is_active" id="inlineRadio2" value="0"
+                         checked>
+                       <label class="form-check-label" for="inlineRadio2">Non-Active</label>
+                     </div>
+                     <?php endif; ?>
                    </div>
-                   <div class="form-check form-check-inline">
-                     <input class="form-check-input" type="radio" name="is_active" id="inlineRadio2" value="0">
-                     <label class="form-check-label" for="inlineRadio2">Non-Active</label>
-                   </div>
-                   <?php else : ?>
-                   <div class="form-check form-check-inline">
-                     <input class="form-check-input" type="radio" name="is_active" id="inlineRadio1" value="1">
-                     <label class="form-check-label" for="inlineRadio1">Active</label>
-                   </div>
-                   <div class="form-check form-check-inline">
-                     <input class="form-check-input" type="radio" name="is_active" id="inlineRadio2" value="0" checked>
-                     <label class="form-check-label" for="inlineRadio2">Non-Active</label>
-                   </div>
-                   <?php endif; ?>
                  </div>
                </div>
                <div class="form-group">
