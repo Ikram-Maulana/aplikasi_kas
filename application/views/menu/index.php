@@ -5,20 +5,20 @@
            <h1>Menu</h1>
          </div>
 
-         <!-- if empty -->
-         <?php if (empty($menu)) : ?>
-         <div class="example-alert">
-           <div class="alert alert-fill alert-danger alert-icon mb-2"><em class="icon ni ni-alert-circle"></em>
-             <strong>Data Tidak Ditemukan</strong>
-           </div>
-         </div>
-         <?php endif; ?>
-
          <div class="section-body">
            <h2 class="section-title"><?= $title; ?></h2>
            <p class="section-lead" style="margin-bottom: 0.5rem;">Laman untuk me-manage menu.</p>
            <a href="#" class="section-lead btn btn-primary mb-4" data-toggle="modal" data-target="#modalForm">Add New
              Menu</a>
+
+           <!-- if empty -->
+           <?php if (empty($menu)) : ?>
+           <div class="example-alert">
+             <div class="alert alert-fill alert-danger alert-icon mb-2"><em class="icon ni ni-alert-circle"></em>
+               <strong>Data Tidak Ditemukan</strong>
+             </div>
+           </div>
+           <?php endif; ?>
 
            <div class="row">
              <div class="col-12">

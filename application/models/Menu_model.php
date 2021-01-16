@@ -9,15 +9,12 @@ class Menu_model extends CI_Model
     return $this->db->get('user_menu')->result_array();
   }
 
-  public function getSubMenu($limit, $start, $keyword = null)
+  public function getSubMenu()
   {
-    if ($keyword) {
-      $this->db->like('title', $keyword);
-    }
     $this->db->select('*');
     $this->db->from('user_menu');
     $this->db->join('user_sub_menu', 'user_sub_menu.menu_id=user_menu.id');
-    return $this->db->get('', $limit, $start)->result_array();
+    return $this->db->get()->result_array();
   }
 
   public function deleteMenu($id)

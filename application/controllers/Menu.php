@@ -91,58 +91,10 @@ class Menu extends CI_Controller
 
   public function submenu()
   {
-    // ambil data keyword
-    if ($this->input->post('submit')) {
-      $data['keyword'] = $this->input->post('keyword');
-      $this->session->set_userdata('keyword', $data['keyword']);
-    } else {
-      $data['keyword'] = $this->session->userdata('keyword');;
-    }
-
-    // config
-    $config['base_url'] = 'http://localhost/uas_1930511075/menu/submenu';
-    $this->db->like('title', $data['keyword']);
-    $this->db->from('user_sub_menu');
-    $config['total_rows'] = $this->db->count_all_results();
-    $config['per_page'] = 10;
-
-    // Styling
-    $config['full_tag_open'] = '<nav><ul class="pagination mt-2">';
-    $config['full_tag_close'] = '</ul></nav>';
-
-    $config['first_link'] = 'First';
-    $config['first_tag_open'] = '<li class="page-item">';
-    $config['first_tag_close'] = '</li>';
-
-    $config['last_link'] = 'Last';
-    $config['last_tag_open'] = '<li class="page-item">';
-    $config['last_tag_close'] = '</li>';
-
-    $config['next_link'] = '&raquo';
-    $config['next_tag_open'] = '<li class="page-item">';
-    $config['next_tag_close'] = '</li>';
-
-    $config['prev_link'] = '&laquo';
-    $config['prev_tag_open'] = '<li class="page-item">';
-    $config['prev_tag_close'] = '</li>';
-
-    $config['cur_tag_open'] = '<li class="page-item active" aria-current="page"><a class="page-link" href="#">';
-    $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
-
-    $config['num_tag_open'] = '<li class="page-item" href="#">';
-    $config['num_tag_close'] = '</li>';
-
-    $config['attributes'] = array('class' => 'page-link');
-
-    // inisialisasi
-    $this->pagination->initialize($config);
-
-    $data['start'] = $this->uri->segment('3');
-
     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
     $data['title'] = 'Submenu Management';
     $data['menu'] = $this->db->get('user_menu')->result_array();
-    $data['subMenu'] = $this->menu->getsubmenu($config['per_page'], $data['start'], $data['keyword']);
+    $data['subMenu'] = $this->menu->getsubmenu();
 
     $this->form_validation->set_rules('title', 'Title', 'required');
     $this->form_validation->set_rules('menu_id', 'Menu', 'required');
