@@ -50,11 +50,6 @@ class Admin_model extends CI_Model
     return $this->db->get('tbl_sumber')->result_array();
   }
 
-  public function getSumber2()
-  {
-    return $this->db->get('tbl_sumber')->result_array();
-  }
-
   public function deleteSumber($id)
   {
     $this->db->where('id', $id);
@@ -72,11 +67,8 @@ class Admin_model extends CI_Model
     return $this->db->get('tbl_kasmasuk')->result_array();
   }
 
-  public function getDankel($limit, $start, $keyword = null)
+  public function getDankel()
   {
-    if ($keyword) {
-      $this->db->like('nama_transaksi', $keyword);
-    }
-    return $this->db->get('tbl_kaskeluar', $limit, $start)->result_array();
+    return $this->db->get('tbl_kaskeluar')->result_array();
   }
 } //END CLASS
