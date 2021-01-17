@@ -14,7 +14,7 @@
            <!-- if empty -->
            <?php if (empty($subMenu)) : ?>
            <div class="example-alert">
-             <div class="alert alert-fill alert-danger alert-icon mb-2"><em class="icon ni ni-alert-circle"></em>
+             <div class="alert alert-fill alert-danger alert-icon mb-2"><em class="fas fa-exclamation-circle mr-2"></em>
                <strong>Data Tidak Ditemukan</strong>
              </div>
            </div>

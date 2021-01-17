@@ -1,74 +1,73 @@
-      <!-- content @s -->
-      <div class="nk-content nk-content-fluid">
-        <div class="container-xl wide-lg">
-          <div class="nk-content-body">
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-header">
+            <h1>Role Access</h1>
+          </div>
 
-            <div class="nk-block nk-block-lg">
-              <div class="nk-block-head">
-                <div class="nk-block-head-content">
-                  <h4 class="nk-block-title"><?= $title; ?></h4>
-                  <p>Laman untuk me-manage role access.</p>
-                  <div class="berhasil" data-flashdata="<?= $this->session->flashdata('berhasil'); ?>"></div>
-                  <a href="<?= base_url('admin/role'); ?>"><button class="btn btn-danger mb-2">Kembali</button></a>
-                  <div class="example-alert">
-                    <div class="alert alert-fill alert-gray alert-icon"><em class="icon ni ni-alert-circle"></em>
-                      <strong>Role : </strong><?= $role['role']; ?>
+          <div class="section-body">
+            <h2 class="section-title"><?= $title; ?></h2>
+            <p class="section-lead" style="margin-bottom: 0.5rem;">Laman untuk me-manage role access.</p>
+            <div class="berhasil" data-flashdata="<?= $this->session->flashdata('berhasil'); ?>"></div>
+            <a href="<?= base_url('admin/role'); ?>"><button class="section-lead btn btn-primary
+                mb-3">Kembali</button></a>
+            <div class="example-alert">
+              <div class="alert alert-fill alert-primary alert-icon"><em class="fas fa-exclamation-circle mr-2"></em>
+                <strong>Role : </strong><?= $role['role']; ?>
+              </div>
+            </div>
+
+            <!-- if empty -->
+            <?php if (empty($role) && empty($menu)) : ?>
+            <div class="example-alert">
+              <div class="alert alert-fill alert-danger alert-icon mb-2 mt-2"><em
+                  class="fas fa-exclamation-circle mr-2"></em>
+                <strong>Data Tidak Ditemukan</strong>
+              </div>
+            </div>
+            <?php endif; ?>
+
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Role Access Management</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-striped tables-1">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Menu</th>
+                            <th>Access</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php
+                          $no = 1;
+                          foreach ($menu as $m) :
+                          ?>
+                          <tr>
+                            <td>
+                              <?= $no++; ?>
+                            </td>
+                            <td><?= $m['menu']; ?></td>
+                            <td>
+                              <input type="checkbox" class="form-check-input" id="defaultCheck1"
+                                <?= check_access($role['id'], $m['id']); ?> data-role="<?= $role['id']; ?>"
+                                data-menu="<?= $m['id']; ?>">
+                            </td>
+                          </tr>
+                          <?php endforeach; ?>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
-                  <!-- if empty -->
-                  <?php if (empty($role) && empty($menu)) : ?>
-                  <div class="example-alert">
-                    <div class="alert alert-fill alert-danger alert-icon mb-2 mt-2"><em
-                        class="icon ni ni-alert-circle"></em>
-                      <strong>Data Tidak Ditemukan</strong>
-                    </div>
-                  </div>
-                  <?php endif; ?>
                 </div>
               </div>
-              <div class="card card-bordered card-preview">
-                <table class="table table-tranx">
-                  <thead>
-                    <tr class="tb-tnx-head">
-                      <th class="tb-tnx-id"><span class="">#</span></th>
-                      <th class="tb-tnx-info">
-                        <span class="tb-tnx-desc d-none d-sm-inline-block">
-                          <span>Menu</span>
-                        </span>
-                      </th>
-                      <th class="tb-tnx-action">
-                        <span>Access</span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                    $no = 1;
-                    foreach ($menu as $m) :
-                    ?>
-                    <tr class="tb-tnx-item">
-                      <td class="tb-tnx-id">
-                        <a href="#"><span><?= $no++; ?></span></a>
-                      </td>
-                      <td class="tb-tnx-info">
-                        <div class="tb-tnx-total">
-                          <span class="amount"><?= $m['menu']; ?></span>
-                        </div>
-                      </td>
-                      <td class="tb-odr-action">
-                        <div class="form-check">
-                          <input type="checkbox" class="form-check-input" <?= check_access($role['id'], $m['id']); ?>
-                            data-role="<?= $role['id']; ?>" data-menu="<?= $m['id']; ?>">
-                        </div>
-                      </td>
-                    </tr>
-                    <?php endforeach; ?>
-                  </tbody>
-                </table>
-              </div><!-- .card-preview -->
-            </div><!-- nk-block -->
+            </div>
 
           </div>
-        </div>
+        </section>
       </div>
-      <!-- content @e -->
