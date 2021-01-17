@@ -23,8 +23,8 @@
                </div>
                <div class="user-action">
                  <div class="dropdown">
-                   <a class="btn btn-icon btn-trigger ml-3 mr-n2" style="color: #742930;" data-toggle="dropdown"
-                     href="#"><i class="fas fa-angle-double-right fa-lg"></i></a>
+                   <a class="btn btn-trigger ml-3 mr-n2" style="color: #742930;" data-toggle="dropdown" href="#"><i
+                       class="fas fa-angle-double-right fa-lg"></i></a>
                    <div class="dropdown-menu dropdown-menu-right">
                      <ul class="link-list-opt no-bdr" style="margin-bottom: 0px; list-style-type:none;">
                        <li><a href="#" data-toggle="modal" data-target="#photo-edit" style="color: #742930;"><em
