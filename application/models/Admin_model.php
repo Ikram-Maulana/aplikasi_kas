@@ -3,16 +3,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin_model extends CI_Model
 {
-  public function getAkun($limit, $start, $keyword = null)
+  public function getAkun()
   {
-    if ($keyword) {
-      $this->db->like('name', $keyword);
-      $this->db->or_like('email', $keyword);
-    }
     $this->db->select('*');
     $this->db->from('user_role');
     $this->db->join('user', 'user.role_id=user_role.id');
-    $query = $this->db->get('', $limit, $start)->result_array();
+    $query = $this->db->get()->result_array();
     return $query;
   }
 
@@ -49,12 +45,9 @@ class Admin_model extends CI_Model
     return $this->db->update('user', $data);
   }
 
-  public function getSumber($limit, $start, $keyword = null)
+  public function getSumber()
   {
-    if ($keyword) {
-      $this->db->like('sumber', $keyword);
-    }
-    return $this->db->get('tbl_sumber', $limit, $start)->result_array();
+    return $this->db->get('tbl_sumber')->result_array();
   }
 
   public function getSumber2()
@@ -74,12 +67,9 @@ class Admin_model extends CI_Model
     return $this->db->update('tbl_sumber', $data);
   }
 
-  public function getDanmas($limit, $start, $keyword = null)
+  public function getDanmas()
   {
-    if ($keyword) {
-      $this->db->like('nama_transaksi', $keyword);
-    }
-    return $this->db->get('tbl_kasmasuk', $limit, $start)->result_array();
+    return $this->db->get('tbl_kasmasuk')->result_array();
   }
 
   public function getDankel($limit, $start, $keyword = null)

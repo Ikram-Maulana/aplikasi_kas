@@ -134,56 +134,8 @@ class Admin extends CI_Controller
 
   public function akun()
   {
-    // ambil data keyword
-    if ($this->input->post('submit')) {
-      $data['keyword'] = $this->input->post('keyword');
-      $this->session->set_userdata('keyword', $data['keyword']);
-    } else {
-      $data['keyword'] = $this->session->userdata('keyword');;
-    }
-
-    // config
-    $config['base_url'] = 'http://localhost/uas_1930511075/admin/akun';
-    $this->db->like('name', $data['keyword']);
-    $this->db->or_like('email', $data['keyword']);
-    $this->db->from('user');
-    $config['total_rows'] = $this->db->count_all_results();
-    $config['per_page'] = 10;
-
-    // Styling
-    $config['full_tag_open'] = '<nav><ul class="pagination mt-2">';
-    $config['full_tag_close'] = '</ul></nav>';
-
-    $config['first_link'] = 'First';
-    $config['first_tag_open'] = '<li class="page-item">';
-    $config['first_tag_close'] = '</li>';
-
-    $config['last_link'] = 'Last';
-    $config['last_tag_open'] = '<li class="page-item">';
-    $config['last_tag_close'] = '</li>';
-
-    $config['next_link'] = '&raquo';
-    $config['next_tag_open'] = '<li class="page-item">';
-    $config['next_tag_close'] = '</li>';
-
-    $config['prev_link'] = '&laquo';
-    $config['prev_tag_open'] = '<li class="page-item">';
-    $config['prev_tag_close'] = '</li>';
-
-    $config['cur_tag_open'] = '<li class="page-item active" aria-current="page"><a class="page-link" href="#">';
-    $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
-
-    $config['num_tag_open'] = '<li class="page-item" href="#">';
-    $config['num_tag_close'] = '</li>';
-
-    $config['attributes'] = array('class' => 'page-link');
-
-    // inisialisasi
-    $this->pagination->initialize($config);
-    $data['start'] = $this->uri->segment('3');
-
     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-    $data['akun'] = $this->admin->getAkun($config['per_page'], $data['start'], $data['keyword']);
+    $data['akun'] = $this->admin->getAkun();
     $data['title'] = 'Daftar Akun';
 
     $this->load->view('template/header-dash', $data);
@@ -241,54 +193,7 @@ class Admin extends CI_Controller
 
   public function sumberDana()
   {
-    // ambil data keyword
-    if ($this->input->post('submit')) {
-      $data['keyword'] = $this->input->post('keyword');
-      $this->session->set_userdata('keyword', $data['keyword']);
-    } else {
-      $data['keyword'] = $this->session->userdata('keyword');;
-    }
-
-    // config
-    $config['base_url'] = 'http://localhost/uas_1930511075/admin/sumberdana';
-    $this->db->like('sumber', $data['keyword']);
-    $this->db->from('tbl_sumber');
-    $config['total_rows'] = $this->db->count_all_results();
-    $config['per_page'] = 10;
-
-    // Styling
-    $config['full_tag_open'] = '<nav><ul class="pagination mt-2">';
-    $config['full_tag_close'] = '</ul></nav>';
-
-    $config['first_link'] = 'First';
-    $config['first_tag_open'] = '<li class="page-item">';
-    $config['first_tag_close'] = '</li>';
-
-    $config['last_link'] = 'Last';
-    $config['last_tag_open'] = '<li class="page-item">';
-    $config['last_tag_close'] = '</li>';
-
-    $config['next_link'] = '&raquo';
-    $config['next_tag_open'] = '<li class="page-item">';
-    $config['next_tag_close'] = '</li>';
-
-    $config['prev_link'] = '&laquo';
-    $config['prev_tag_open'] = '<li class="page-item">';
-    $config['prev_tag_close'] = '</li>';
-
-    $config['cur_tag_open'] = '<li class="page-item active" aria-current="page"><a class="page-link" href="#">';
-    $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
-
-    $config['num_tag_open'] = '<li class="page-item" href="#">';
-    $config['num_tag_close'] = '</li>';
-
-    $config['attributes'] = array('class' => 'page-link');
-
-    // inisialisasi
-    $this->pagination->initialize($config);
-
-    $data['start'] = $this->uri->segment('3');
-    $data['sumber'] = $this->admin->getSumber($config['per_page'], $data['start'], $data['keyword']);
+    $data['sumber'] = $this->admin->getSumber();
 
     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
     $data['title'] = 'Sumber Dana Management';
@@ -381,56 +286,7 @@ class Admin extends CI_Controller
     $data['title'] = 'Dana Masuk';
 
     $data['sumber'] = $this->db->get('tbl_sumber')->result_array();
-
-    // ambil data keyword
-    if ($this->input->post('submit')) {
-      $data['keyword'] = $this->input->post('keyword');
-      $this->session->set_userdata('keyword', $data['keyword']);
-    } else {
-      $data['keyword'] = $this->session->userdata('keyword');;
-    }
-
-    // config
-    $config['base_url'] = 'http://localhost/uas_1930511075/admin/danamasuk';
-    $this->db->like('nama_transaksi', $data['keyword']);
-    $this->db->from('tbl_kasmasuk');
-    $config['total_rows'] = $this->db->count_all_results();
-    $config['per_page'] = 10;
-
-    // Styling
-    $config['full_tag_open'] = '<nav><ul class="pagination mt-2">';
-    $config['full_tag_close'] = '</ul></nav>';
-
-    $config['first_link'] = 'First';
-    $config['first_tag_open'] = '<li class="page-item">';
-    $config['first_tag_close'] = '</li>';
-
-    $config['last_link'] = 'Last';
-    $config['last_tag_open'] = '<li class="page-item">';
-    $config['last_tag_close'] = '</li>';
-
-    $config['next_link'] = '&raquo';
-    $config['next_tag_open'] = '<li class="page-item">';
-    $config['next_tag_close'] = '</li>';
-
-    $config['prev_link'] = '&laquo';
-    $config['prev_tag_open'] = '<li class="page-item">';
-    $config['prev_tag_close'] = '</li>';
-
-    $config['cur_tag_open'] = '<li class="page-item active" aria-current="page"><a class="page-link" href="#">';
-    $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
-
-    $config['num_tag_open'] = '<li class="page-item" href="#">';
-    $config['num_tag_close'] = '</li>';
-
-    $config['attributes'] = array('class' => 'page-link');
-
-    // inisialisasi
-    $this->pagination->initialize($config);
-
-    $data['start'] = $this->uri->segment('3');
-    $this->db->order_by("date_trx", "asc");
-    $data['kasmasuk'] = $this->admin->getDanmas($config['per_page'], $data['start'], $data['keyword']);
+    $data['kasmasuk'] = $this->admin->getDanmas();
 
     $this->db->select_sum('nominal');
     $data['total_kas'] = $this->db->get('tbl_kasmasuk')->row_array();
