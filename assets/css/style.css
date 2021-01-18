@@ -2902,6 +2902,10 @@ a.dropdown-item.active {
   border-radius: 50%;
 }
 
+.data {
+  display: none;
+}
+
 @media (max-width: 575.98px) {
   .laporan {
     margin-left: 94px !important;

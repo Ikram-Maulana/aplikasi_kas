@@ -63,6 +63,15 @@ $('.form-check-input').on('click', function() {
 });
 </script>
 
+<script>
+$(document).ready(function() {
+  $("#name").on('change', function() {
+    $(".data").hide();
+    $("#" + $(this).val()).fadeIn(700);
+  }).change();
+});
+</script>
+
 </body>
 
 </html>

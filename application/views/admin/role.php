@@ -9,7 +9,7 @@
             <h2 class="section-title"><?= $title; ?></h2>
             <p class="section-lead" style="margin-bottom: 0.5rem;">Laman untuk me-manage role.</p>
             <a href="#" class="section-lead btn btn-primary mb-4" data-toggle="modal" data-target="#modalForm">Add New
-              Menu</a>
+              Role</a>
 
             <!-- if empty -->
             <?php if (empty($role)) : ?>
@@ -98,7 +98,8 @@
               </form>
             </div>
             <div class="modal-footer bg-light">
-              <span class="sub-text">© 2020 Ikram Maulana.</span>
+              <span class="sub-text">Copyright © 2018
+                Design By Muhamad Nauval Azhar </span>
             </div>
           </div>
         </div>
@@ -132,7 +133,8 @@
               </form>
             </div>
             <div class="modal-footer bg-light">
-              <span class="sub-text">© 2020 Ikram Maulana.</span>
+              <span class="sub-text">Copyright © 2018
+                Design By Muhamad Nauval Azhar </span>
             </div>
           </div>
         </div>

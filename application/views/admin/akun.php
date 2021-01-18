@@ -155,7 +155,8 @@
               </div>
             </div>
             <div class="modal-footer bg-light">
-              <span class="sub-text">© 2020 Ikram Maulana.</span>
+              <span class="sub-text">Copyright © 2018
+                Design By Muhamad Nauval Azhar </span>
             </div>
           </div>
         </div>
@@ -216,7 +217,8 @@
               </form>
             </div>
             <div class="modal-footer bg-light">
-              <span class="sub-text">© 2020 Ikram Maulana.</span>
+              <span class="sub-text">Copyright © 2018
+                Design By Muhamad Nauval Azhar </span>
             </div>
           </div>
         </div>
