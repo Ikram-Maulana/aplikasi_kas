@@ -100,7 +100,7 @@
                  <label class="form-label" for="title">Submenu Title</label>
                  <div class="form-control-wrap">
                    <input type="text" class="form-control" id="title" name="title" required>
-                   <?= form_error('title', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+                   <?= form_error('title', '<div class="text-danger"><small>', '</small></div>'); ?>
                  </div>
                </div>
                <div class="form-group">
@@ -119,14 +119,14 @@
                  <label class="form-label" for="url">Submenu Url</label>
                  <div class="form-control-wrap">
                    <input type="text" class="form-control" id="url" name="url" required>
-                   <?= form_error('url', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+                   <?= form_error('url', '<div class="text-danger"><small>', '</small></div>'); ?>
                  </div>
                </div>
                <div class="form-group">
                  <label class="form-label" for="icon">Submenu Icon</label>
                  <div class="form-control-wrap">
                    <input type="text" class="form-control" id="icon" name="icon" required>
-                   <?= form_error('icon', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+                   <?= form_error('icon', '<div class="text-danger"><small>', '</small></div>'); ?>
                  </div>
                </div>
                <div class="form-group mb-4">
@@ -181,7 +181,7 @@
                  <label class="form-label" for="title">Submenu Title</label>
                  <div class="form-control-wrap">
                    <input type="text" class="form-control" id="title" name="title" value="<?= $sm['title'] ?>" required>
-                   <?= form_error('title', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+                   <?= form_error('title', '<div class="text-danger"><small>', '</small></div>'); ?>
                  </div>
                </div>
                <div class="form-group">
@@ -201,14 +201,14 @@
                  <label class="form-label" for="url">Submenu Url</label>
                  <div class="form-control-wrap">
                    <input type="text" class="form-control" id="url" name="url" value="<?= $sm['url']; ?>" required>
-                   <?= form_error('url', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+                   <?= form_error('url', '<div class="text-danger"><small>', '</small></div>'); ?>
                  </div>
                </div>
                <div class="form-group">
                  <label class="form-label" for="icon">Submenu Icon</label>
                  <div class="form-control-wrap">
                    <input type="text" class="form-control" id="icon" name="icon" value="<?= $sm['icon']; ?>" required>
-                   <?= form_error('icon', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+                   <?= form_error('icon', '<div class="text-danger"><small>', '</small></div>'); ?>
                  </div>
                </div>
                <div class="form-group mb-4">

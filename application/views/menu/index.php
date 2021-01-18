@@ -123,7 +123,7 @@
                  <label class="form-label" for="menu">Menu Name</label>
                  <div class="form-control-wrap">
                    <input type="text" class="form-control" id="menu" name="menu" value="<?= $m['menu'] ?>" required>
-                   <?= form_error('menu', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+                   <?= form_error('menu', '<div class="text-danger"><small>', '</small></div>'); ?>
                  </div>
                </div>
                <div class="form-group">

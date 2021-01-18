@@ -89,7 +89,7 @@
                   <label class="form-label" for="role">Role Name</label>
                   <div class="form-control-wrap">
                     <input type="text" class="form-control" id="role" name="role" required>
-                    <?= form_error('role', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+                    <?= form_error('role', '<div class="text-danger"><small>', '</small></div>'); ?>
                   </div>
                 </div>
                 <div class="form-group">
@@ -124,7 +124,7 @@
                   <label class="form-label" for="role">Role Name</label>
                   <div class="form-control-wrap">
                     <input type="text" class="form-control" id="role" name="role" value="<?= $r['role']; ?>" required>
-                    <?= form_error('role', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+                    <?= form_error('role', '<div class="text-danger"><small>', '</small></div>'); ?>
                   </div>
                 </div>
                 <div class="form-group">

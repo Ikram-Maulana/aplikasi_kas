@@ -19,7 +19,13 @@
                </div>
                <div class="user-info">
                  <span class="lead-text" style="font-weight: bold;"><?= $user['name']; ?></span>
-                 <div class="sub-text"><?= $user['email']; ?></div>
+                 <div class="sub-text"><span><?php
+                                              if (strlen($user['email']) > 17) {
+                                                $email = substr($user['email'], 0, 17);
+                                                echo $email . " ...";
+                                              } else {
+                                                echo $user['email'];
+                                              } ?></span></div>
                </div>
                <div class="user-action">
                  <div class="dropdown">
@@ -95,21 +101,21 @@
              <label class="form-label" for="current_password">Current Password</label>
              <div class="form-control-wrap">
                <input type="password" class="form-control" id="current_password" name="current_password" required>
-               <?= form_error('current_password', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+               <?= form_error('current_password', '<div class="text-danger"><small>', '</small></div>'); ?>
              </div>
            </div>
            <div class="form-group mb-2">
              <label class="form-label" for="new_password1">New Password</label>
              <div class="form-control-wrap">
                <input type="password" class="form-control" id="new_password1" name="new_password1" required>
-               <?= form_error('new_password1', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+               <?= form_error('new_password1', '<div class="text-danger"><small>', '</small></div>'); ?>
              </div>
            </div>
            <div class="form-group mb-2">
              <label class="form-label" for="new_password2">Repeat Password</label>
              <div class="form-control-wrap">
                <input type="password" class="form-control" id="new_password2" name="new_password2" required>
-               <?= form_error('new_password2', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+               <?= form_error('new_password2', '<div class="text-danger"><small>', '</small></div>'); ?>
              </div>
            </div>
            <div class="mt-3">

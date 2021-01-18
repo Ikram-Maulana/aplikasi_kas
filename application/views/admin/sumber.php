@@ -87,7 +87,7 @@
                   <label class="form-label" for="sumber">Sumber</label>
                   <div class="form-control-wrap">
                     <input type="text" class="form-control" id="sumber" name="sumber" required>
-                    <?= form_error('sumber', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+                    <?= form_error('sumber', '<div class="text-danger"><small>', '</small></div>'); ?>
                   </div>
                 </div>
                 <div class="form-group">
@@ -127,7 +127,7 @@
                   <div class="form-control-wrap">
                     <input type="text" class="form-control" id="sumber" name="sumber" value="<?= $s['sumber'] ?>"
                       required>
-                    <?= form_error('sumber', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+                    <?= form_error('sumber', '<div class="text-danger"><small>', '</small></div>'); ?>
                   </div>
                 </div>
                 <div class="form-group">

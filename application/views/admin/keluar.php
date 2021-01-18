@@ -110,13 +110,13 @@
                     <input type="text" class="form-control" id="keterangan" name="keterangan"
                       placeholder="Keterangan Dana Keluar" value="<?= set_value('keterangan'); ?>" required>
                   </div>
-                  <?= form_error('keterangan', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+                  <?= form_error('keterangan', '<div class="text-danger"><small>', '</small></div>'); ?>
                 </div>
                 <label class="form-label">Tanggal</label>
                 <div class="form-control-wrap focused">
                   <input type="date" class="form-control" id="tanggal" placeholder="Enter date" name="tanggal"
                     value="<?= set_value('tanggal'); ?>">
-                  <?= form_error('tanggal', '<small class="invalid">', '</small>'); ?>
+                  <?= form_error('tanggal', '<div class="text-danger"><small>', '</small></div>'); ?>
                 </div>
                 <div class="form-note mb-1">Date format <code>mm/dd/yyyy</code></div>
                 <div class="form-group">
@@ -128,7 +128,7 @@
                     <input type="text" class="form-control" id="nominal" name="nominal" placeholder="Nominal"
                       value="<?= set_value('nominal'); ?>" required>
                   </div>
-                  <?= form_error('nominal', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+                  <?= form_error('nominal', '<div class="text-danger"><small>', '</small></div>'); ?>
                 </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-lg btn-primary">Add</button>

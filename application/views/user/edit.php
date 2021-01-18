@@ -19,7 +19,13 @@
                </div>
                <div class="user-info">
                  <span class="lead-text" style="font-weight: bold;"><?= $user['name']; ?></span>
-                 <div class="sub-text"><?= $user['email']; ?></div>
+                 <div class="sub-text"><span><?php
+                                              if (strlen($user['email']) > 17) {
+                                                $email = substr($user['email'], 0, 17);
+                                                echo $email . " ...";
+                                              } else {
+                                                echo $user['email'];
+                                              } ?></span></div>
                </div>
                <div class="user-action">
                  <div class="dropdown">
@@ -142,14 +148,14 @@
              <label class="form-label" for="name">Full Name</label>
              <div class="form-control-wrap">
                <input type="text" class="form-control" id="name" name="name" value="<?= $user['name']; ?>" required>
-               <?= form_error('name', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+               <?= form_error('name', '<div class="text-danger"><small>', '</small></div>'); ?>
              </div>
            </div>
            <div class="form-group mb-2">
              <label class="form-label" for="phone">Phone Number</label>
              <div class="form-control-wrap">
                <input type="text" class="form-control" id="phone" name="phone" value="<?= $user['phone']; ?>" required>
-               <?= form_error('phone', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+               <?= form_error('phone', '<div class="text-danger"><small>', '</small></div>'); ?>
              </div>
            </div>
            <div class="form-group mb-2">
@@ -158,7 +164,7 @@
                <input type="date" class="form-control date-picker" id="birthday" name="birthday"
                  value="<?= $user['birthday']; ?>" required>
                <div class="form-note">Date format <code>mm/dd/yyyy</code></div>
-               <?= form_error('birthday', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+               <?= form_error('birthday', '<div class="text-danger"><small>', '</small></div>'); ?>
              </div>
            </div>
            <div class="form-group mb-2">
@@ -166,7 +172,7 @@
              <div class="form-control-wrap">
                <input type="text" class="form-control" id="address" name="address" value="<?= $user['address']; ?>"
                  required>
-               <?= form_error('address', '<span id="fva-message-error" class="invalid">', '</span>'); ?>
+               <?= form_error('address', '<div class="text-danger"><small>', '</small></div>'); ?>
              </div>
            </div>
            <div class="mt-3">
