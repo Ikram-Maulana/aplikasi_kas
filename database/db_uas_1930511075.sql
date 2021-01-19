@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 14, 2021 at 08:55 AM
+-- Generation Time: Jan 19, 2021 at 03:13 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -41,7 +41,9 @@ CREATE TABLE `jurnal` (
 INSERT INTO `jurnal` (`id`, `id_transaksi`, `keterangan`, `tgl_transaksi`) VALUES
 (25, '13012021-6105', 'Kemahasiswaan', '2021-01-13 00:00:00'),
 (26, '13012021-5238', 'Pembelian Banner', '2021-01-13 00:00:00'),
-(27, '14012021-6600', 'Uang Kas', '2021-01-14 00:00:00');
+(27, '14012021-6600', 'Uang Kas', '2021-01-14 00:00:00'),
+(29, '17012021-1025', 'Uang Saku Ikram', '2021-01-17 00:00:00'),
+(30, '17012021-3998', 'Sewa Kamera', '2021-01-17 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -63,7 +65,9 @@ CREATE TABLE `jurnal_detail` (
 INSERT INTO `jurnal_detail` (`id`, `id_jurnal`, `kredit`, `debit`) VALUES
 (1, '25', 0, 300000),
 (2, '26', 50000, 0),
-(3, '27', 0, 30000);
+(3, '27', 0, 30000),
+(5, '29', 0, 20000),
+(6, '30', 50000, 0);
 
 -- --------------------------------------------------------
 
@@ -86,7 +90,9 @@ CREATE TABLE `tbl_kas` (
 INSERT INTO `tbl_kas` (`id_transaksi`, `tipe_kas`, `keterangan`, `nominal`, `tgl_transaksi`) VALUES
 ('13012021-6105', 'masuk', 'Kemahasiswaan', 300000, '2021-01-13 00:00:00'),
 ('13012021-5238', 'keluar', 'Pembelian Banner', 50000, '2021-01-13 00:00:00'),
-('14012021-6600', 'masuk', 'Uang Kas', 30000, '2021-01-14 00:00:00');
+('14012021-6600', 'masuk', 'Uang Kas', 30000, '2021-01-14 00:00:00'),
+('17012021-1025', 'masuk', 'Uang Saku Ikram', 20000, '2021-01-17 00:00:00'),
+('17012021-3998', 'keluar', 'Sewa Kamera', 50000, '2021-01-17 00:00:00');
 
 --
 -- Triggers `tbl_kas`
@@ -132,7 +138,8 @@ CREATE TABLE `tbl_kaskeluar` (
 --
 
 INSERT INTO `tbl_kaskeluar` (`id`, `id_transaksi`, `nama_transaksi`, `nominal`, `jenis`, `date_trx`) VALUES
-(1, '13012021-5238', 'Pembelian Banner', 50000, 'kas keluar', '2021-01-13 00:00:00');
+(1, '13012021-5238', 'Pembelian Banner', 50000, 'kas keluar', '2021-01-13 00:00:00'),
+(3, '17012021-3998', 'Sewa Kamera', 50000, 'kas keluar', '2021-01-17 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -156,7 +163,8 @@ CREATE TABLE `tbl_kasmasuk` (
 
 INSERT INTO `tbl_kasmasuk` (`id`, `id_transaksi`, `nama_transaksi`, `nominal`, `jenis`, `id_anggota`, `date_trx`) VALUES
 (1, '13012021-6105', 'Kemahasiswaan', 300000, 'kas masuk', '1', '2021-01-13 00:00:00'),
-(2, '14012021-6600', 'Uang Kas', 30000, 'kas masuk', '2', '2021-01-14 00:00:00');
+(2, '14012021-6600', 'Uang Kas', 30000, 'kas masuk', '2', '2021-01-14 00:00:00'),
+(3, '17012021-1025', 'Uang Saku Ikram', 20000, 'kas masuk', '3', '2021-01-17 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -175,7 +183,8 @@ CREATE TABLE `tbl_sumber` (
 
 INSERT INTO `tbl_sumber` (`id`, `sumber`) VALUES
 (1, 'Kemahasiswaan'),
-(2, 'Uang Kas');
+(2, 'Uang Kas'),
+(3, 'Uang Saku Ikram');
 
 -- --------------------------------------------------------
 
@@ -202,8 +211,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`, `phone`, `birthday`, `address`) VALUES
-(1, 'Ikram Maulana', 'ikram075@ummi.ac.id', 'IMG_20191201_171417_5305.jpg', '$2y$10$mu.NkJxaPOMcwBeFOpNffeO8/p/RSMb5blxlVajiogR7VALQBVxKq', 1, 1, 1609256295, '085156590021', '12/29/2020', 'Jl. Brawijaya 1 No.30'),
-(7, 'Zahran Daak Janidri', 'ikram_maulana@onedrive.web.id', 'IMG_20191201_171417_5306.jpg', '$2y$10$/tgmluNHP8TsxJpco7z9h.MjhEc7V6Gglu6JVAXuS9/P4wQ.G64ra', 2, 1, 1609844270, '081906055080', '01/05/2021', 'Jl. Brawijaya 1 No.30');
+(1, 'Ikram Maulana', 'ikram075@ummi.ac.id', 'IMG_20191201_171417_5305.jpg', '$2y$10$pkty35BiGd9UtjJk3eYxeuRCblQE4MNSDR7bJjgvgQwWoPc416XnG', 1, 1, 1609256295, '085156590021', '2000-08-20', 'Jl. Brawijaya 1 No.30'),
+(7, 'Zahran Daak Janidri', 'ikram_maulana@onedrive.web.id', 'IMG_20191201_171417_5306.jpg', '$2y$10$7tY9xHZTCwJKr1FZohXU2OjwQRseVDAwbq3nZpzU8PX3WFIosYd6W', 2, 1, 1609844270, '081906055080', '01/05/2021', 'Jl. Brawijaya 1 No.30');
 
 -- --------------------------------------------------------
 
@@ -228,10 +237,10 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (9, 2, 3),
 (10, 2, 6),
 (45, 1, 6),
-(73, 1, 3),
 (91, 1, 2),
 (104, 10, 6),
-(105, 10, 3);
+(105, 10, 3),
+(107, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -259,7 +268,8 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 (51, 'data10'),
 (52, 'data11'),
 (53, 'datadata'),
-(54, 'hackintosh');
+(81, 'Linux Mint'),
+(82, 'Ikram');
 
 -- --------------------------------------------------------
 
@@ -300,17 +310,17 @@ CREATE TABLE `user_sub_menu` (
 --
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
-(7, 2, 'Sumber Dana', 'admin/sumberdana', 'icon ni ni-tranx', 1),
-(8, 2, 'Dana Masuk', 'admin/danamasuk', 'icon ni ni-wallet-in', 1),
-(9, 2, 'Dana Keluar', 'admin/danakeluar', 'icon ni ni-wallet-out', 1),
-(12, 3, 'Laporan Rekapitulasi', 'laporan/index', 'icon ni ni-file-docs', 1),
-(13, 4, 'Daftar Akun', 'admin/akun', 'icon ni ni-user-list', 1),
-(14, 6, 'My Profile', 'user/index', 'icon ni ni-user', 1),
-(15, 6, 'Edit Account', 'user/edit', 'icon ni ni-account-setting', 1),
-(16, 5, 'Menu Management', 'menu/index', 'icon ni ni-folder', 1),
-(17, 5, 'Submenu Management', 'menu/submenu', 'icon ni ni-folder-list', 1),
-(22, 5, 'Role', 'admin/role', 'icon ni ni-users', 1),
-(28, 1, 'Dashboard', 'admin/index', 'icon ni ni-coins', 1);
+(7, 2, 'Sumber Dana', 'admin/sumberdana', 'fas fa-building', 1),
+(8, 2, 'Dana Masuk', 'admin/danamasuk', 'fas fa-donate', 1),
+(9, 2, 'Dana Keluar', 'admin/danakeluar', 'fas fa-shopping-bag', 1),
+(12, 3, 'Laporan Rekapitulasi', 'laporan/index', 'fas fa-file-alt', 1),
+(13, 4, 'Daftar Akun', 'admin/akun', 'fas fa-list', 1),
+(14, 6, 'My Profile', 'user/index', 'fas fa-user', 1),
+(15, 6, 'Edit Account', 'user/edit', 'fas fa-user-cog', 1),
+(16, 5, 'Menu Management', 'menu/index', 'fas fa-folder', 1),
+(17, 5, 'Submenu Management', 'menu/submenu', 'fas fa-folder-open', 1),
+(22, 5, 'Role', 'admin/role', 'fas fa-user-secret', 1),
+(28, 1, 'Dashboard', 'admin/index', 'fas fa-fire', 1);
 
 -- --------------------------------------------------------
 
@@ -330,8 +340,6 @@ CREATE TABLE `user_token` (
 --
 
 INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
-(12, 'ikram_maulana@onedrive.web.id', 'TV9gHhT5FQvdtYSnro/VCGMb7vhrvO0T3flQyxR9pYc=', 1609843075),
-(13, 'ikram_maulana@onedrive.web.id', 'qLjzNrYg8Ns4d5El9ONWc0CW82AC9eSE5gZOh6fvLo0=', 1609844270),
 (14, 'farikhfadhil123@gmail.com', 'il7HwHwTntIvu3tYjgmbVYERfIawn0egQH4SUNCe558=', 1610011258);
 
 --
@@ -412,31 +420,31 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `jurnal`
 --
 ALTER TABLE `jurnal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `jurnal_detail`
 --
 ALTER TABLE `jurnal_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_kaskeluar`
 --
 ALTER TABLE `tbl_kaskeluar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_kasmasuk`
 --
 ALTER TABLE `tbl_kasmasuk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_sumber`
 --
 ALTER TABLE `tbl_sumber`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -448,31 +456,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

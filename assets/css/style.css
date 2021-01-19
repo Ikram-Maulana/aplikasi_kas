@@ -2496,7 +2496,9 @@ h6 .badge {
 }
 
 .navbar .nav-link.nav-link-user img {
-  width: 30px;
+  width: 31px;
+  height: 31px;
+  border-radius: 50% !important;
 }
 
 .navbar .nav-link.nav-link-img {
@@ -2900,6 +2902,7 @@ a.dropdown-item.active {
   height: 50px !important;
   margin-right: 1rem;
   border-radius: 50%;
+  width: 50px !important;
 }
 
 .data {

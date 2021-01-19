@@ -17,15 +17,17 @@
                 <div class="user-card user-card-s2">
                   <div class="user-avatar lg">
                     <span><img src="<?= base_url('images/profile/') . $user['image']; ?>" class="rounded-circle"
-                        style="margin-left: 38%;margin-top: 2rem;margin-bottom: 1rem;" width="80"></span>
+                        style="margin-left: 38%;margin-top: 2rem;margin-bottom: 1rem; width: 80px; height: 80px; border-radius: 50% !important;"></span>
                   </div>
                   <div class="user-info">
                     <h6 style="margin-left: 32.5%;"><?= $user['name']; ?></h6>
-                    <span class="sub-text" style="margin-left: 35%;margin-bottom: 2rem;"><?php if ($user['role_id'] == 1) {
-                                                                                            echo "Administrator";
-                                                                                          } else {
-                                                                                            echo "User";
-                                                                                          } ?></span>
+                    <?php if ($user['role_id'] == 1) { ?>
+                    <span class="sub-text" style="margin-left: 35%;margin-bottom: 2rem;">
+                      <?= "Administrator";
+                    } else { ?>
+                      <span class="sub-text" style="margin-left: 44%;margin-bottom: 2rem;">
+                        <?= "User";
+                      } ?></span>
                   </div>
                 </div>
                 <ul class="team-info mt-3" style="list-style-type:none;">
