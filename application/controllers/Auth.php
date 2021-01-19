@@ -19,12 +19,33 @@ class Auth extends CI_Controller
 
     if ($this->form_validation->run() == false) {
       $data['title'] = 'Login Page';
-      $this->load->view('template/header', $data);
+      $this->load->view('auth/template/header_auth', $data);
       $this->load->view('auth/login');
-      $this->load->view('template/footer');
+      $this->load->view('auth/template/footer_auth');
     } else {
       // validasi sukses
-      $this->_login();
+      $url        = 'https://www.google.com/recaptcha/api/siteverify';
+      $postField  = ['secret' => '6LcpOzIaAAAAAK83_0me3Lr7KMRHGRuJn1k6-U56', 'response' => $this->input->POST('token'), 'remoteip' => $_SERVER['REMOTE_ADDR']];
+
+      $this->load->model('Captcha_model', 'captcha');
+      $verify_reCAPTCHA = $this->captcha->post($url, $postField);
+
+      if ($verify_reCAPTCHA['success'] == TRUE && $verify_reCAPTCHA['score'] > 0.5 && $verify_reCAPTCHA['action'] == 'submit') {
+        $this->_login();
+      } else {
+        $this->session->set_flashdata(
+          'message',
+          '<div class="alert alert-danger alert-dismissible show fade">
+          <div class="alert-body">
+            <button class="close" data-dismiss="alert">
+              <span>&times;</span>
+            </button>
+            Verify Captcha Failed!
+          </div>
+        </div>'
+        );
+        redirect('auth/index');
+      }
     }
   }
 
@@ -104,9 +125,9 @@ class Auth extends CI_Controller
 
     if ($this->form_validation->run() == false) {
       $data['title'] = 'Register Account';
-      $this->load->view('template/header', $data);
+      $this->load->view('auth/template/header_auth', $data);
       $this->load->view('auth/register');
-      $this->load->view('template/footer');
+      $this->load->view('auth/template/footer_auth');
     } else {
       $email = $this->input->post('email', true);
       $data = [
@@ -291,9 +312,9 @@ class Auth extends CI_Controller
   {
     $data['title'] = '403';
     $this->output->set_status_header('403');
-    $this->load->view('template/header', $data);
+    $this->load->view('auth/template/header_auth', $data);
     $this->load->view('auth/blocked');
-    $this->load->view('template/footer');
+    $this->load->view('auth/template/footer_auth');
   }
 
   public function forgotPassword()
@@ -302,9 +323,9 @@ class Auth extends CI_Controller
 
     if ($this->form_validation->run() == false) {
       $data['title'] = 'Forgot Password';
-      $this->load->view('template/header', $data);
+      $this->load->view('auth/template/header_auth', $data);
       $this->load->view('auth/forgot-password');
-      $this->load->view('template/footer');
+      $this->load->view('auth/template/footer_auth');
     } else {
       $email = $this->input->post('email');
       $user = $this->db->get_where('user', ['email' => $email, 'is_active' => 1])->row_array();
@@ -427,9 +448,9 @@ class Auth extends CI_Controller
 
     if ($this->form_validation->run() == false) {
       $data['title'] = 'Change Password';
-      $this->load->view('template/header', $data);
+      $this->load->view('auth/template/header_auth', $data);
       $this->load->view('auth/change-password');
-      $this->load->view('template/footer');
+      $this->load->view('auth/template/footer_auth');
     } else {
       $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
       $email = $this->session->userdata('reset_email');

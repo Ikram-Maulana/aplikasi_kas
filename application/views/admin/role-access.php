@@ -28,41 +28,31 @@
             <?php endif; ?>
 
             <div class="row">
-              <div class="col-12">
+              <div class="col-12 col-md-12 col-lg-12">
                 <div class="card">
                   <div class="card-header">
                     <h4>Role Access Management</h4>
                   </div>
                   <div class="card-body">
-                    <div class="table-responsive">
-                      <table class="table table-striped tables-1">
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>Menu</th>
-                            <th>Access</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <?php
-                          $no = 1;
-                          foreach ($menu as $m) :
-                          ?>
-                          <tr>
-                            <td>
-                              <?= $no++; ?>
-                            </td>
-                            <td><?= $m['menu']; ?></td>
-                            <td>
-                              <input type="checkbox" class="form-check-input" id="defaultCheck1"
-                                <?= check_access($role['id'], $m['id']); ?> data-role="<?= $role['id']; ?>"
-                                data-menu="<?= $m['id']; ?>">
-                            </td>
-                          </tr>
-                          <?php endforeach; ?>
-                        </tbody>
-                      </table>
-                    </div>
+                    <table class="table table-hover">
+                      <tr>
+                        <th>#</th>
+                        <th>Menu</th>
+                        <th>Access</th>
+                      </tr>
+                      <tr>
+                        <?php
+                        $no = 1;
+                        foreach ($menu as $m) :
+                        ?>
+                        <td><?= $no++; ?></td>
+                        <td><?= $m['menu']; ?></td>
+                        <td><input type="checkbox" class="form-check-input" id="gridCheck1"
+                            <?= check_access($role['id'], $m['id']); ?> data-role="<?= $role['id']; ?>"
+                            data-menu="<?= $m['id']; ?>"></td>
+                      </tr>
+                      <?php endforeach; ?>
+                    </table>
                   </div>
                 </div>
               </div>

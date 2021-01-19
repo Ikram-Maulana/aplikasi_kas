@@ -44,13 +44,13 @@
                 </div>
                 <div class="form-group mb-2">
                   <label for="address">Address</label>
-                  <input id="address" type="date" class="form-control" name="address" tabindex="1"
+                  <input id="address" type="text" class="form-control" name="address" tabindex="1"
                     value="<?= set_value('address'); ?>">
                   <?= form_error('address', '<div class="text-danger"><small>', '</small></div>'); ?>
                 </div>
                 <div class="form-group mb-2">
                   <label for="password">Password</label>
-                  <input id="password" type="date" class="form-control" name="password" tabindex="1">
+                  <input id="password" type="password" class="form-control" name="password" tabindex="1">
                   <?= form_error('password', '<div class="text-danger"><small>', '</small></div>'); ?>
                 </div>
                 <div class="form-group">

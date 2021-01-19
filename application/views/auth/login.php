@@ -16,7 +16,7 @@
             </div>
 
             <div class="card-body">
-              <form class="form-validate needs-validation" action="<?= base_url('auth'); ?>" method="post">
+              <form class="form-validate needs-validation" action="<?= base_url('auth'); ?>" method="post" id="login">
                 <?= $this->session->flashdata('message'); ?>
                 <div class="form-group mb-2">
                   <label for="email">Email</label>
@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                  <button type="submit" class="btn btn-primary btn-lg btn-block g-recaptcha" tabindex="4">
                     Login
                   </button>
                 </div>
