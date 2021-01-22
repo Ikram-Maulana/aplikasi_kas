@@ -61,11 +61,12 @@
                              <?php endif; ?>
                            </td>
                            <td>
-                             <a class="btn btn-warning text-light" data-toggle="modal"
+                             <a class="btn btn-warning text-light mb-2" data-toggle="modal"
                                data-target="#editForm<?= $sm['id']; ?>">
                                <span>Edit</span>
                              </a>
-                             <a class="btn btn-danger del-btn" href="<?= base_url('menu/hapussm/') . $sm['id']; ?>">
+                             <a class="btn btn-danger del-btn mb-2"
+                               href="<?= base_url('menu/hapussm/') . $sm['id']; ?>">
                                <span>Delete</span>
                              </a>
                            </td>

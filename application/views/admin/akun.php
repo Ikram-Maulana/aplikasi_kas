@@ -48,7 +48,13 @@
                               <?= $no++; ?>
                             </td>
                             <td><?= $usr['name']; ?></td>
-                            <td><?= $usr['email']; ?></td>
+                            <td><?php
+                                  if (strlen($usr['email']) > 17) {
+                                    $email = substr($usr['email'], 0, 17);
+                                    echo $email . " ...";
+                                  } else {
+                                    echo $usr['email'];
+                                  } ?></td>
                             <td><?= $usr['role']; ?></td>
                             <td>
                               <?php if ($usr['is_active'] == 1) : ?>
@@ -58,13 +64,14 @@
                               <?php endif; ?>
                             </td>
                             <td>
-                              <a class="btn btn-success text-light" data-toggle="modal"
-                                data-target="#viewForm<?= $usr['id']; ?>"><em class="fas fa-eye mr-2"></em><span>Quick
+                              <a class="btn btn-success text-white mb-2" data-toggle="modal"
+                                data-target="#viewForm<?= $usr['id']; ?>"><em
+                                  class="fas fa-eye mr-2 text-white"></em><span>Quick
                                   View</span></a>
-                              <a class="btn btn-warning text-light" data-toggle="modal"
+                              <a class="btn btn-warning text-white mb-2" data-toggle="modal"
                                 data-target="#editForm<?= $usr['id']; ?>"><em
                                   class="fas fa-exchange-alt mr-2"></em><span>Change Status</span></a>
-                              <a class="btn btn-danger del-btn"
+                              <a class="btn btn-danger del-btn mb-2"
                                 href="<?= base_url('admin/hapusakun/') . $usr['id']; ?>"><em
                                   class="fas fa-trash mr-2"></em><span>Delete User</span></a>
                             </td>
