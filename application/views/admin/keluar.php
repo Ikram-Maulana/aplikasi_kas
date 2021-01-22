@@ -42,7 +42,7 @@
 
             <div class="row">
               <div class="col-12">
-                <div class="card">
+                <div class="card card-primary">
                   <div class="card-header">
                     <h4>Dana Keluar Management</h4>
                   </div>

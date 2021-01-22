@@ -12,7 +12,7 @@
        <div id="output-status"></div>
        <div class="row">
          <div class="col-md-4">
-           <div class="card">
+           <div class="card card-primary">
              <div class="card-header">
                <div class="user-avatar">
                  <div><img class="foto" src="<?= base_url('images/profile/') . $user['image']; ?>"></div>
@@ -29,7 +29,7 @@
                </div>
                <div class="user-action">
                  <div class="dropdown">
-                   <a class="btn btn-trigger ml-3 mr-n2" style="color: #742930;" data-toggle="dropdown" href="#"><i
+                   <a class="btn btn-trigger ml-2 mr-n2" style="color: #742930;" data-toggle="dropdown" href="#"><i
                        class="fas fa-angle-double-right fa-lg"></i></a>
                    <div class="dropdown-menu dropdown-menu-right">
                      <ul class="link-list-opt no-bdr" style="margin-bottom: 0px; list-style-type:none;">
@@ -51,7 +51,7 @@
          </div>
          <div class="col-md-8">
            <form id="setting-form">
-             <div class="card" id="settings-card">
+             <div class="card card-primary" id="settings-card">
                <div class="card-header">
                  <h4>Personal Information</h4>
                </div>

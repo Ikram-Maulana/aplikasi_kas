@@ -43,8 +43,8 @@
       <?php endforeach; ?>
 
       <li>
-        <a class="logout" href="<?= base_url('auth/logout'); ?>">
-          <i class="fas fa-sign-out-alt"></i>
+        <a class="logout text-danger" href="<?= base_url('auth/logout'); ?>">
+          <i class="fas fa-sign-out-alt text-danger"></i>
           <span>Sign Out</span>
         </a>
       </li>

@@ -11,7 +11,7 @@
 
       <div class="row g-gs">
         <div class="col-sm-6 col-lg-4">
-          <div class="card card-bordered">
+          <div class="card card-bordered card-primary">
             <div class="card-inner">
               <div class="team">
                 <div class="user-card user-card-s2">
