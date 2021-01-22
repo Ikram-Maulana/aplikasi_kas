@@ -33,7 +33,11 @@
 
       <!-- Looping sub menu -->
       <?php foreach ($subMenu as $sm) : ?>
+      <?php if ($title == $sm['title']) : ?>
+      <li class="active">
+        <?php else : ?>
       <li>
+        <?php endif; ?>
         <a class="nav-link" href="<?= base_url($sm['url']); ?>">
           <i class="<?= $sm['icon']; ?>"></i>
           <span><?= $sm['title']; ?></span>

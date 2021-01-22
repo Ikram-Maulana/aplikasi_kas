@@ -6,7 +6,7 @@
      </div>
 
      <div class="section-body">
-       <h2 class="section-title"><?= $title; ?></h2>
+       <h2 class="section-title">Edit Profile</h2>
        <p class="section-lead" style="margin-bottom: 0.5rem;">Laman untuk menyunting profile.</p>
 
        <div id="output-status"></div>

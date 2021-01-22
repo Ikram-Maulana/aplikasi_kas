@@ -15,7 +15,7 @@ class Admin extends CI_Controller
   public function index()
   {
     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-    $data['title'] = 'Dashboard | Kas UPM';
+    $data['title'] = 'Dashboard';
     $this->db->select_sum('nominal');
     $data['total_masuk'] = $this->db->get('tbl_kasmasuk')->row_array();
     $this->db->select_sum('nominal');
@@ -31,7 +31,7 @@ class Admin extends CI_Controller
   public function role()
   {
     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-    $data['title'] = 'Role Management';
+    $data['title'] = 'Role';
     $data['role'] = $this->db->get('user_role')->result_array();
 
     $this->form_validation->set_rules('role', 'Role', 'required');
@@ -52,7 +52,7 @@ class Admin extends CI_Controller
   public function roleAccess($role_id)
   {
     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-    $data['title'] = 'Role Access';
+    $data['title'] = 'Role';
     $data['role'] = $this->db->get_where('user_role', ['id' => $role_id])->row_array();
 
     $this->db->where('id !=', 1);
@@ -196,7 +196,7 @@ class Admin extends CI_Controller
     $data['sumber'] = $this->admin->getSumber();
 
     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-    $data['title'] = 'Sumber Dana Management';
+    $data['title'] = 'Sumber Dana';
 
     $this->form_validation->set_rules('sumber', 'Sumber', 'required');
 

@@ -6,7 +6,7 @@
           </div>
 
           <div class="section-body">
-            <h2 class="section-title"><?= $title; ?></h2>
+            <h2 class="section-title"><?= $title; ?> Management</h2>
             <p class="section-lead" style="margin-bottom: 0.5rem;">Laman untuk me-manage role.</p>
             <a href="#" class="section-lead btn btn-primary mb-4" data-toggle="modal" data-target="#modalForm">Add New
               Role</a>

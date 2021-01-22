@@ -6,7 +6,7 @@
           </div>
 
           <div class="section-body">
-            <h2 class="section-title"><?= $title; ?></h2>
+            <h2 class="section-title"><?= $title; ?> Access</h2>
             <p class="section-lead" style="margin-bottom: 0.5rem;">Laman untuk me-manage role access.</p>
             <div class="berhasil" data-flashdata="<?= $this->session->flashdata('berhasil'); ?>"></div>
             <a href="<?= base_url('admin/role'); ?>"><button class="section-lead btn btn-primary
