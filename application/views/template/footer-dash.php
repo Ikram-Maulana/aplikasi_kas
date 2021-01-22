@@ -19,9 +19,6 @@
 <script src="<?= base_url('assets'); ?>/modules/fontawesome/js/2d24ac2742.js"></script>
 
 <!-- JS Libraies -->
-<script src="<?= base_url('assets'); ?>/modules/jqvmap/dist/jquery.vmap.min.js"></script>
-<script src="<?= base_url('assets'); ?>/modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-<script src="<?= base_url('assets'); ?>/modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
 <script src="<?= base_url('assets'); ?>/modules/sweetalert/sweetalert.min.js"></script>
 <script src="<?php echo base_url('assets'); ?>/js/page/modules-sweetalert.js"></script>
 <script src="<?= base_url('assets'); ?>/modules/datatables/datatables.min.js"></script>
@@ -31,12 +28,9 @@
 
 <!-- Template JS File -->
 <script src="<?= base_url('assets'); ?>/js/scripts.js"></script>
-<script src="<?= base_url('assets'); ?>/js/custom.js"></script>
 
 <!-- Page Specific JS File -->
 <script src="<?= base_url('assets'); ?>/js/page/modules-datatables.js"></script>
-<script src="<?= base_url('assets'); ?>/js/page/index-0.js"></script>
-<script src="<?php echo base_url('assets'); ?>/js/page/modules-sweetalert.js"></script>
 
 <script>
 $('.custom-file-input').on('change', function() {

@@ -11,7 +11,6 @@
 
   <!-- Template JS File -->
   <script src="<?= base_url('assets'); ?>/js/scripts.js"></script>
-  <script src="<?= base_url('assets'); ?>/js/custom.js"></script>
 
   <!-- Page Specific JS File -->
 
