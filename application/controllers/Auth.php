@@ -165,6 +165,7 @@ class Auth extends CI_Controller
         Congratulation! your account has been created. Please activate your account
       </div>
     </div>');
+      redirect('auth/index');
     }
   }
 

@@ -59,13 +59,6 @@ $('.form-check-input').on('click', function() {
 
 <script>
 $(document).ready(function() {
-  $(function() {
-    iziToast.success({
-      title: 'Hello, world!',
-      message: 'This awesome plugin is made by iziToast',
-      position: 'topRight'
-    });
-  });
 
   $("#name").on('change', function() {
     $(".data").hide();
