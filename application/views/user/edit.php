@@ -5,7 +5,7 @@
        <h1>Personal Info</h1>
        <a href="#" data-toggle="modal" data-target="#photo-edit"
          class="btn btn-white btn-dim btn-outline-primary cfoto btn-icon icon-left"><i
-           class="fas fa-camera mr-2"></i><span>Change Photo</span></a></li>
+           class="fas fa-camera mr-2"></i><span>Change Photo</span></a>
      </div>
 
      <div class="section-body">
