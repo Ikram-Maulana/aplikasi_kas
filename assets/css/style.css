@@ -2896,6 +2896,10 @@ a.dropdown-item.active {
   margin-left: 790px !important;
 }
 
+.cfoto {
+  margin-left: 720px !important;
+}
+
 .foto {
   vertical-align: middle;
   border-style: none;
@@ -2912,6 +2916,10 @@ a.dropdown-item.active {
 @media (max-width: 575.98px) {
   .laporan {
     margin-left: 94px !important;
+  }
+
+  .cfoto {
+    margin-left: 37px !important;
   }
 
   .dropdown-list-toggle {
@@ -3611,7 +3619,7 @@ body.sidebar-mini .main-sidebar .sidebar-menu>li>a.has-dropdown:after {
 
 body.sidebar-mini .main-sidebar .sidebar-menu>li.active>a {
   box-shadow: 0 4px 8px #acb5f6;
-  background-color: #878ff1;
+  background-color: #742930;
   color: #fff;
 }
 

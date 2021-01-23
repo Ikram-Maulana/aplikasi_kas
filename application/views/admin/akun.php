@@ -157,7 +157,7 @@
               <div class="form-group">
                 <label class="form-label" for="name">Profile Picture</label>
                 <div class="form-control-wrap">
-                  <img src="<?= base_url('images/profile/') . $user['image']; ?>" style="width:50%;">
+                  <img src="<?= base_url('images/profile/') . $usr['image']; ?>" style="width:50%;">
                 </div>
               </div>
             </div>

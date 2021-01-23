@@ -3,6 +3,9 @@
    <section class="section">
      <div class="section-header">
        <h1>Personal Info</h1>
+       <a href="#" data-toggle="modal" data-target="#photo-edit"
+         class="btn btn-white btn-dim btn-outline-primary cfoto btn-icon icon-left"><i
+           class="fas fa-camera mr-2"></i><span>Change Photo</span></a></li>
      </div>
 
      <div class="section-body">
@@ -28,16 +31,6 @@
                                               } ?></span></div>
                </div>
                <div class="user-action">
-                 <div class="dropdown">
-                   <a class="btn btn-trigger ml-2 mr-n2" style="color: #742930;" data-toggle="dropdown" href="#"><i
-                       class="fas fa-angle-double-right fa-lg"></i></a>
-                   <div class="dropdown-menu dropdown-menu-right">
-                     <ul class="link-list-opt no-bdr" style="margin-bottom: 0px; list-style-type:none;">
-                       <li><a href="#" data-toggle="modal" data-target="#photo-edit" style="color: #742930;"><em
-                             class="fas fa-camera mr-2"></em><span>Change Photo</span></a></li>
-                     </ul>
-                   </div>
-                 </div>
                </div>
              </div>
              <div class="card-body">
