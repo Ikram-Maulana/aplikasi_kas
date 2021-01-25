@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 19, 2021 at 03:13 AM
+-- Generation Time: Jan 23, 2021 at 02:25 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -212,7 +212,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`, `phone`, `birthday`, `address`) VALUES
 (1, 'Ikram Maulana', 'ikram075@ummi.ac.id', 'IMG_20191201_171417_5305.jpg', '$2y$10$pkty35BiGd9UtjJk3eYxeuRCblQE4MNSDR7bJjgvgQwWoPc416XnG', 1, 1, 1609256295, '085156590021', '2000-08-20', 'Jl. Brawijaya 1 No.30'),
-(7, 'Zahran Daak Janidri', 'ikram_maulana@onedrive.web.id', 'IMG_20191201_171417_5306.jpg', '$2y$10$7tY9xHZTCwJKr1FZohXU2OjwQRseVDAwbq3nZpzU8PX3WFIosYd6W', 2, 1, 1609844270, '081906055080', '01/05/2021', 'Jl. Brawijaya 1 No.30');
+(11, 'Ikram Maulana', 'ikram_maulana@onedrive.web.id', 'default.jpg', '$2y$10$1KSAc3tnzianunUb00cMCuVkUJNAk5LJuTUVWMO0Ufx1DufA2qyuG', 2, 1, 1611364689, '081906055080', '2000-08-20', 'jl. brawijaya 1 no 30');
 
 -- --------------------------------------------------------
 
@@ -450,7 +450,7 @@ ALTER TABLE `tbl_sumber`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
@@ -480,7 +480,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
